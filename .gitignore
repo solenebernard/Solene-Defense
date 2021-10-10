@@ -11,7 +11,11 @@
 *.cb
 *.cb2
 .*.lb
+
+# Heavy files
 *xcf
+*wav
+*mp3
 
 ## Intermediate documents:
 *.dvi
