@@ -175,19 +175,19 @@ Alice
 
 
 \begin{frame}{Context}
-%\animategraphics[width=\linewidth]{29}{animation_stego_music/}{0}{29}
+\animategraphics[width=\linewidth]{29}{animation_stego_music/}{0}{29}
 %\includemedia[addresource=stegodecode.mp3,flashvars={source=stegodecode.mp3,&autoPlay=false}]{Play}{APlayer.swf}
 \end{frame}
 
 \begin{frame}{Context}
 \begin{figure}[h]
-\includegraphics[width=\linewidth]{images/schema_stego.pdf}
+%\includegraphics[width=\linewidth]{images/schema_stego.pdf}
 \end{figure}
 \end{frame}
 
 \begin{frame}{Context}
 \begin{figure}[h]
-\includegraphics[width=\linewidth]{images/schema_stego2.pdf}
+%\includegraphics[width=\linewidth]{images/schema_stego2.pdf}
 \end{figure}
 \end{frame}
 
@@ -313,12 +313,13 @@ D(\mathbf{x},\mathbf{y}) = \sum_i \rho_i^{y_i - x_i}
 
 \begin{frame}{Hiding a message with matrix embedding}
 \begin{figure}[h]
-\includegraphics[width=0.6\linewidth]{images/matrixembedding_1.pdf}
+\includegraphics[width=0.6\linewidth]{images/matrixembedding_4.pdf}
 \end{figure}
-\begin{equation}
-    D = \rho_0^1 +  \rho_1^1 + \rho_2^0 +  \rho_3^0 + \rho_4^1 +  \rho_5^0
-\end{equation}
+\begin{equation*}
+    D = 5\times \textcolor{greentheme}{1} +  3\times \textcolor{greentheme}{1} + 1\times \textcolor{greentheme}{1} +  2 \times \textcolor{greentheme}{0} + 4 \times \textcolor{greentheme}{1} +  3 \times \textcolor{greentheme}{0} = 13
+\end{equation*}
 \end{frame}
+
 
 
 
@@ -326,28 +327,30 @@ D(\mathbf{x},\mathbf{y}) = \sum_i \rho_i^{y_i - x_i}
 \begin{figure}[h]
 \includegraphics[width=0.6\linewidth]{images/matrixembedding_2.pdf}
 \end{figure}
-\begin{equation}
-    D = \rho_0^0 +  \rho_1^1 + \rho_2^1 +  \rho_3^0 + \rho_4^1 +  \rho_5^0
-\end{equation}
+\begin{equation*}
+    D = 5\times \textcolor{greentheme}{0} +  3\times  \textcolor{greentheme}{1} + 1\times \textcolor{greentheme}{1} +  2 \times \textcolor{greentheme}{0} + 4 \times \textcolor{greentheme}{1} +  3 \times \textcolor{greentheme}{0} = 8
+\end{equation*}
 \end{frame}
 
 \begin{frame}{Hiding a message with matrix embedding}
 \begin{figure}[h]
 \includegraphics[width=0.6\linewidth]{images/matrixembedding_3.pdf}
 \end{figure}
-\begin{equation}
-    D = \rho_0^1 +  \rho_1^1 + \rho_2^0 +  \rho_3^0 + \rho_4^0 +  \rho_5^0
-\end{equation}
+\begin{equation*}
+    D = 5\times \textcolor{greentheme}{1} +  3\times \textcolor{greentheme}{1} + 1\times \textcolor{greentheme}{0} +  2 \times \textcolor{greentheme}{0} + 4 \times \textcolor{greentheme}{0} +  3 \times \textcolor{greentheme}{0} = 8
+\end{equation*}
 \end{frame}
+
 
 \begin{frame}{Hiding a message with matrix embedding}
 \begin{figure}[h]
-\includegraphics[width=0.6\linewidth]{images/matrixembedding_4.pdf}
+\includegraphics[width=0.6\linewidth]{images/matrixembedding_1.pdf}
 \end{figure}
-\begin{equation}
-    D = \rho_0^1 +  \rho_1^1 + \rho_2^1 +  \rho_3^0 + \rho_4^1 +  \rho_5^0
-\end{equation}
+\begin{equation*}
+    D = 5\times \textcolor{greentheme}{0} +  3\times \textcolor{greentheme}{1} + 1\times \textcolor{greentheme}{0}  +  2 \times \textcolor{greentheme}{0} + 4 \times  \textcolor{greentheme}{0} +  3 \times \textcolor{greentheme}{0} = \boxed{3}
+\end{equation*}
 \end{frame}
+
 
 
 % \begin{frame}{Embedding a message}
@@ -476,7 +479,7 @@ Historically (until 2015): via features extraction followed by classification
 \end{frame}
 
 \begin{frame}{Machine learning for automatic binary classification}
-\animategraphics[width=\linewidth]{30}{animation_training/}{0}{30}
+%\animategraphics[width=\linewidth]{30}{animation_training/}{0}{30}
 \end{frame}
 
 \begin{frame}{Machine learning - Parameters, loss and optimization}
@@ -558,14 +561,14 @@ $\mathcal{A}_e$ set of classifiers of Eve.
 \section{Playing an iterative game with a \textbf{minmax} protocol}
 
 
-%\begin{frame}{Adversarial steganography}
+\begin{frame}{Adversarial steganography}
 %\animategraphics[width=\linewidth]{29}{animation_adversarial_stego/}{0}{30}
-% n\end{frame}
+\end{frame}
 
 
-%\begin{frame}{Adversarial steganography}
+\begin{frame}{Adversarial steganography}
 %\animategraphics[width=\linewidth]{29}{animation_retraining_stega/}{0}{30}
-%\end{frame}
+\end{frame}
 
 
 
@@ -716,9 +719,6 @@ At~$k^{\mathrm{th}}$ iteration, the two following macro-steps:
 
 \begin{frame}{2. Eve's turn: iteration $k$}
 
-\centering{Creation of a new action \\
-Training of a new classifier $f^k$ to discriminate between $\mathcal{X}, \mathcal{Y}^k$.}
-
 % \pause
 
 % A huge challenge of steganography comes from the knowledge of each player's action. 
@@ -732,16 +732,18 @@ Training of a new classifier $f^k$ to discriminate between $\mathcal{X}, \mathca
 \end{frame}
 
 
+\begin{frame}{Details of player's actions}
 
-\begin{frame}{1. Alice's turn}
+    \alert{Alice's new action:}
+    
+     \begin{equation*}
+            \begin{array}{ccccccccccc}
+                \mathbf{x} & \longrightarrow & \{\rho_i\}_i & \longrightarrow & \{\pi_i^b\}_i &   \xrightarrow{\mbox{\footnotesize{draw}}} & \{b_i\}_i &  \longrightarrow & \mathbf{y} & \longrightarrow  & f(\mathbf{y}) \\
+                & & & & & & & & & \alert{\xleftarrow{ \nabla_{\mathbf{y}} f(\mathbf{y}) }} 
+            \end{array}
+            \end{equation*}
 
-\begin{equation*}
-\begin{array}{ccccccccccc}
-    \mathbf{x} & \longrightarrow & \{\rho_i\}_i & \longrightarrow & \{\pi_i^b\}_i &   \xrightarrow{\mbox{\footnotesize{draw}}} & \{b_i\}_i &  \longrightarrow & \mathbf{y} = \mathbf{x} + \mathbf{b} & \alert{\longrightarrow}  & f(\mathbf{y}) \\
-\end{array}
-\end{equation*}
-
-ADV-EMB~\cite{tang2019cnn} proposes the following update rule:
+ADV-EMB~\cite{tang2019cnn} proposes the following update rule, with $\alpha=2$:
 \begin{equation}
 \rho_{i}^{+, new} = 
 \left\{
@@ -753,7 +755,17 @@ ADV-EMB~\cite{tang2019cnn} proposes the following update rule:
 \right.
 \label{eq:qplus}
 \end{equation}
+
+\pause
+\alert{Eve's new action:}
+
+ Creation of a new action. Training of a new classifier $f^k$ to discriminate between $\mathcal{X}, \mathcal{Y}^k$.
+
+
 \end{frame}
+
+
+
 
 
 
@@ -807,28 +819,45 @@ ADV-EMB~\cite{tang2019cnn} proposes the following update rule:
 
 
 \begin{frame}{Flaws of ADV-EMB}
-    
-%\pause
-% \begin{itemize}
-%     \item New stegos defeats only the last classifier \pause
-%     \item The $\min \max$ value reaches too quickly the ceil value.
-% \end{itemize}
 
-\begin{itemize}
+    \begin{itemize}
+
         \item Heuristic
-        \pause
-        \item At some point, it fails at solving
-        \begin{equation*}
-            \mathbf{z}^\ast = \arg \min_{\mathbf{z} \in \mathcal{A}_a} \max_{f \in \fset^{k-1}} f(\femb(\mathbf{x}));
-        \end{equation*} 
         
-        \begin{figure}
-        \includegraphics[width=\linewidth]{images/minmax_evolution_it9.pdf}
-    \end{figure}
-          
+            \begin{equation}
+                \rho_{i}^{+, new} = 
+                \left\{
+                    \begin{array}{ll}
+                        \rho_{i}^+/\alpha & \mbox{if } \frac{\partial f}{\partial y_{i}}\left(\mathbf{y}\right) < 0, \\
+                        \rho_{i}^+ & \mbox{if } \frac{\partial f}{\partial y_{i}}\left(\mathbf{y}\right) = 0, \\
+                        \rho_{i}^+ \alpha & \mbox{if } \frac{\partial f}{\partial y_{i}}\left(\mathbf{y}\right) > 0,
+                    \end{array}
+                \right.
+            \end{equation}
+
     \end{itemize}
+
 \end{frame}
 
+
+
+\begin{frame}{Flaws of ADV-EMB}
+
+    \begin{itemize}
+            
+        \item At some point, it fails at solving
+            \begin{equation*}
+                \mathbf{z}^\ast = \arg \min_{\mathbf{z} \in \mathcal{A}_a} \max_{f \in \fset^{k-1}} f(\femb(\mathbf{x}));
+            \end{equation*} 
+            
+            \begin{figure}
+                \includegraphics[width=\linewidth]{images/minmax_evolution_it9.pdf}
+             \end{figure}
+              
+    \end{itemize}
+
+\end{frame}
+    
 
 
 
@@ -836,13 +865,14 @@ ADV-EMB~\cite{tang2019cnn} proposes the following update rule:
 
 
 \begin{frame}{Backpack}
-\alert{Backpack}: \alert{Back-p}ropagable att\alert{ack} \pause in order to compute \alert{$\nabla_{\rho} f(\mathbf{y})$}.
+
+    \alert{Backpack}: \alert{Back-p}ropagable att\alert{ack} \pause in order to compute \alert{$\nabla_{\rho} f(\mathbf{y})$}.
 
     \begin{equation*}
-    \begin{array}{ccccccccccc}
-        \mathbf{x} \longrightarrow \{\rho_i\}_i & \longrightarrow  \{\pi_i^b\}_i    \alert{\xrightarrow{\mbox{\footnotesize{draw}}}}  \{b_i\}_i   \longrightarrow  \mathbf{y}  \longrightarrow  & \mathbb{E}_{y} [f(\mathbf{y})] \\ 
-        & \alert{\xleftarrow{\hspace{5em} \nabla_\rho \mathbb{E}_{y} [f(\mathbf{y})]\hspace{5em}}} 
-    \end{array}
+        \begin{array}{ccccccccccc}
+            \mathbf{x} \longrightarrow \{\rho_i\}_i & \longrightarrow  \{\pi_i^b\}_i    \alert{\xrightarrow{\mbox{\footnotesize{draw}}}}  \{b_i\}_i   \longrightarrow  \mathbf{y}  \longrightarrow  & \mathbb{E}_{y} [f(\mathbf{y})] \\ 
+            & \alert{\xleftarrow{\hspace{5em} \nabla_\rho \mathbb{E}_{y} [f(\mathbf{y})]\hspace{5em}}} 
+        \end{array}
     \end{equation*}
         
     \pause
@@ -856,11 +886,11 @@ ADV-EMB~\cite{tang2019cnn} proposes the following update rule:
     
         \pause
        \item Computation of the gradient thanks to the gradient of a function defined implicitly
-         \begin{equation*}
-    \begin{array}{ccccccccccc}
-        \mathbf{x} \longrightarrow \{\rho_i\}_i \alert{\longrightarrow}  \{\pi_i^b\}_i    \longrightarrow \{\tilde{b}_i\}_i \longrightarrow  \tilde{\mathbf{y}}  \longrightarrow  & \mathbb{E}[f(\tilde{\mathbf{y}}])
-    \end{array}
-    \end{equation*}
+        \begin{equation*}
+            \begin{array}{ccccccccccc}
+                \mathbf{x} \longrightarrow \{\rho_i\}_i \alert{\longrightarrow}  \{\pi_i^b\}_i    \longrightarrow \{\tilde{b}_i\}_i \longrightarrow  \tilde{\mathbf{y}}  \longrightarrow  & \mathbb{E}[f(\tilde{\mathbf{y}}])
+            \end{array}
+        \end{equation*}
    \end{enumerate}
 \end{frame}
 
@@ -907,16 +937,16 @@ ADV-EMB~\cite{tang2019cnn} proposes the following update rule:
 
 % \end{frame}
 
-\begin{frame}{1. Approximation of discrete modifications with Softmax Gumbel distribution}
-    \begin{equation}
-    \begin{aligned}
-    \nabla_{\bm{\rho}} \underset{\vec{b}\sim P_\vec{b}\left(\vec{b} | \bm{\rho}, \lambda\right)}{\mathbb{E}}\left[f\left(\vec{x}+\vec{b}\right)\right] = 
-    & \nabla_{\bm{\rho}} \underset{\vec{r} \sim R}{\mathbb{E}}[f(\vec{x}+B(\bm{\pi},\vec{r}))]  \\
-    &  = \underset{\vec{r} \sim R}{\mathbb{E}}\left[ \nabla_{\bm{\rho}}  f(\vec{x}+B(\bm{\pi},\vec{r}))\right] 
-    \label{eq:permutategradientexpectancy}
-    \end{aligned}
-    \end{equation}
-\end{frame}
+% \begin{frame}{1. Approximation of discrete modifications with Softmax Gumbel distribution}
+%     \begin{equation}
+%     \begin{aligned}
+%     \nabla_{\bm{\rho}} \underset{\vec{b}\sim P_\vec{b}\left(\vec{b} | \bm{\rho}, \lambda\right)}{\mathbb{E}}\left[f\left(\vec{x}+\vec{b}\right)\right] = 
+%     & \nabla_{\bm{\rho}} \underset{\vec{r} \sim R}{\mathbb{E}}[f(\vec{x}+B(\bm{\pi},\vec{r}))]  \\
+%     &  = \underset{\vec{r} \sim R}{\mathbb{E}}\left[ \nabla_{\bm{\rho}}  f(\vec{x}+B(\bm{\pi},\vec{r}))\right] 
+%     \label{eq:permutategradientexpectancy}
+%     \end{aligned}
+%     \end{equation}
+% \end{frame}
 
 \begin{frame}{1. Approximation of discrete modifications with Softmax Gumbel distribution}
 
@@ -1033,19 +1063,28 @@ Explicit gradient of $\lambda$ accessible through differentiation of the entropy
 
 
 \alert{Backpack}: \alert{Back-p}ropagable att\alert{ack}.
-   \begin{align*}
-    \mathbf{x} \longrightarrow \rho_i \alert{\longrightarrow} p_i \alert{ \xrightarrow{\tilde{b}_\tau}} \tilde{\mathbf{y}} & \longrightarrow f(\tilde{\mathbf{y}}) %\\
-    % & \longrightarrow f^1(\tilde{\mathbf{y}}) \\
-    % & \dots \\
-    % & \longrightarrow f^{k-1}(\tilde{\mathbf{y}})
-    \end{align*}
+%    \begin{align*}
+%     \mathbf{x} \longrightarrow \rho_i \alert{\longrightarrow} \pi_i \alert{ \xrightarrow{\tilde{b}_\tau}} \tilde{\mathbf{y}} & \longrightarrow f(\tilde{\mathbf{y}}) %\\
+%     % & \longrightarrow f^1(\tilde{\mathbf{y}}) \\
+%     % & \dots \\
+%     % & \longrightarrow f^{k-1}(\tilde{\mathbf{y}})
+%     \end{align*}
+
+\begin{equation*}
+    \begin{array}{ccc}
+        \mathbf{x} \longrightarrow \{\rho_i\}_i & \alert{\longrightarrow}  \{\pi_i^b\}_i    \longrightarrow \{\tilde{b}_i\}_i \longrightarrow  \tilde{\mathbf{y}}  \longrightarrow  & \mathbb{E}[f(\tilde{\mathbf{y}})] \\
+        & \alert{\xleftarrow{\hspace{5em} \nabla_\rho \mathbb{E}_{\tilde{y}} [f(\mathbf{y})]\hspace{5em}}} 
+    \end{array}
+\end{equation*}
+
 \pause
 
 Iterative gradient descent, while playing with the temperature $\tau$, to optimize the smooth output w.r.t. best detector:
 
 \begin{equation}
-    \alert{\nabla_{\rho} f(\tilde{\mathbf{y}})}, \quad  f = \argmax_{f \in \mathcal{F}^{k-1}} f(\tilde{\mathbf{y}})
+    \alert{\nabla_\rho \mathbb{E}_{\tilde{y}} [f(\tilde{\mathbf{y}})]}, \quad  f = \argmax_{f \in \mathcal{F}^{k-1}} \mathbb{E}_{\tilde{y}} [f(\tilde{\mathbf{y}})]
 \end{equation}
+
 
 \end{frame}
 
