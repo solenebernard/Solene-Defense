@@ -6,6 +6,7 @@
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
 \usepackage{graphicx}
+\usepackage{tabularx}
 \graphicspath{{./images/}}
 
 \usepackage{pgfplots}
@@ -181,14 +182,16 @@ Alice
 
 \begin{frame}{Context}
 \begin{figure}[h]
-%\includegraphics[width=\linewidth]{images/schema_stego.pdf}
+\includegraphics[width=\linewidth]{images/schema_stego.pdf}
 \end{figure}
 \end{frame}
 
 \begin{frame}{Context}
 \begin{figure}[h]
-%\includegraphics[width=\linewidth]{images/schema_stego2.pdf}
+\includegraphics[width=\linewidth]{images/schema_stego2.pdf}
 \end{figure}
+\pause
+\alert{Kerckhoffs’s principle}: Eve knows everything about Alice's strategy, except the secret key.
 \end{frame}
 
 \begin{frame}{Modern usage of steganography}
@@ -266,7 +269,10 @@ Example:
 \begin{itemize}
     \item In the spatial domain:
         \begin{itemize}
-            \item HILL~\cite{hill}
+            \item HILL~\cite{hill}. 
+                \begin{equation}
+                    \rho=\frac{1}{|\mathbf{x} \star H| \star L 1} \star L_{2}
+                \end{equation}
         \end{itemize}
     \item In the JPEG domain:
         \begin{itemize}
@@ -479,7 +485,7 @@ Historically (until 2015): via features extraction followed by classification
 \end{frame}
 
 \begin{frame}{Machine learning for automatic binary classification}
-%\animategraphics[width=\linewidth]{30}{animation_training/}{0}{30}
+\animategraphics[width=\linewidth]{30}{animation_training/}{0}{30}
 \end{frame}
 
 \begin{frame}{Machine learning - Parameters, loss and optimization}
@@ -496,8 +502,7 @@ Historically (until 2015): via features extraction followed by classification
 
 \pause
 
-\alert{Optimization}:
-\centering{$f$ optimized via gradient descent with $\grad_\theta f$}. 
+\alert{Optimization}: $f$ optimized via gradient descent with $\grad_\theta f$, via \textbf{backpropagation}.
     
 \end{frame}
 
@@ -562,12 +567,12 @@ $\mathcal{A}_e$ set of classifiers of Eve.
 
 
 \begin{frame}{Adversarial steganography}
-%\animategraphics[width=\linewidth]{29}{animation_adversarial_stego/}{0}{30}
+\animategraphics[width=\linewidth]{29}{animation_adversarial_stego/}{0}{30}
 \end{frame}
 
 
 \begin{frame}{Adversarial steganography}
-%\animategraphics[width=\linewidth]{29}{animation_retraining_stega/}{0}{30}
+\animategraphics[width=\linewidth]{29}{animation_retraining_stega/}{0}{30}
 \end{frame}
 
 
@@ -608,14 +613,12 @@ For $(\mathcal{Y}, f)  \in \mathcal{A}_a \times \mathcal{A}_e$, Alice's utility 
 Solution concept:
 
 \alert{
-\begin{equation}
-\underset{\mathcal{A}_a}{\argmin} \max_{\mathcal{A}_e} u_e(\mathcal{Y}, f)
-\label{eq:minmax}
-\end{equation}}
-
-\pause
-
-
+    \huge{
+        \begin{equation*}
+        \underset{\mathcal{A}_a}{\argmin} \max_{\mathcal{A}_e} u_e(\mathcal{Y}, f)
+        \end{equation*}
+    }
+}
     
 \end{frame}
 
@@ -793,6 +796,12 @@ ADV-EMB~\cite{tang2019cnn} proposes the following update rule, with $\alpha=2$:
     \begin{figure}
         \includegraphics[width=0.8\linewidth]{images/results3.pdf}
     \end{figure}
+
+    \pause
+
+    Mismatch between what assumes Alice can differ from the real actions of Eve. 
+    $$ \mathcal{A}_e \neq \tilde{\mathcal{A}}_e $$
+
 \end{frame}
 
 
@@ -1072,8 +1081,8 @@ Explicit gradient of $\lambda$ accessible through differentiation of the entropy
 
 \begin{equation*}
     \begin{array}{ccc}
-        \mathbf{x} \longrightarrow \{\rho_i\}_i & \alert{\longrightarrow}  \{\pi_i^b\}_i    \longrightarrow \{\tilde{b}_i\}_i \longrightarrow  \tilde{\mathbf{y}}  \longrightarrow  & \mathbb{E}[f(\tilde{\mathbf{y}})] \\
-        & \alert{\xleftarrow{\hspace{5em} \nabla_\rho \mathbb{E}_{\tilde{y}} [f(\mathbf{y})]\hspace{5em}}} 
+        \mathbf{x} \longrightarrow \{\rho_i\}_i & \alert{\longrightarrow}  \{\pi_i^b\}_i    \alert{\longrightarrow} \{\tilde{b}_i\}_i \longrightarrow  \tilde{\mathbf{y}}  \longrightarrow  & \mathbb{E}_{\tilde{y}}[f(\tilde{\mathbf{y}})] \\
+        & \alert{\xleftarrow{\hspace{5em} \nabla_\rho \mathbb{E}_{\tilde{y}} [f(\tilde{\mathbf{y}})]\hspace{5em}}} 
     \end{array}
 \end{equation*}
 
@@ -1157,19 +1166,47 @@ Classifier using the rounding error of decompression~CITE
 
 
 \begin{frame}{Interpretation - Natural correlations between DCT modes}
-%The scheme introduces correlations between coefficients:
+    \begin{tabularx}{0.9\textwidth} { 
+        >{\centering\arraybackslash}X 
+        >{\centering\arraybackslash}X 
+        >{\centering\arraybackslash}X
+        >{\centering\arraybackslash}X  }
+        Intra-block & Inter-block & Inter-block & Inter-block \\ 
+   \end{tabularx}
+
     \begin{figure}[h]
-        \includegraphics[width=0.75\linewidth]{images/covariance_QF100_0_01.pdf}
+        \includegraphics[width=1\linewidth]{images/covariance_QF100_0_01_firstline.pdf}
     \end{figure}
 \end{frame}
 
 
 \begin{frame}{Interpretation - Observed correlations between changes of DCT modes}
-%The scheme introduces correlations between coefficients:
+    % \begin{center}
+    %         \begin{tabular}{| m{5em} | m{1cm}| m{1cm} |}
+    %         Intra-block & Inter-block & Inter-block & Inter-block \\ 
+    %         \end{tabular}
+        
+    % \end{center}
+
+    \begin{tabularx}{0.9\textwidth} { 
+         >{\centering\arraybackslash}X 
+         >{\centering\arraybackslash}X 
+         >{\centering\arraybackslash}X
+         >{\centering\arraybackslash}X  }
+         Intra-block & Inter-block & Inter-block & Inter-block \\ 
+    \end{tabularx}
+
     \begin{figure}[h]
-        \includegraphics[width=0.75\linewidth]{images/covariance_QF100_0_01.pdf}
+        \includegraphics[width=1\linewidth]{images/covariance_QF100_0_01_firstline.pdf}
     \end{figure}
+
+    \pause
+
+    For symmetric costs, correlations between DCT modes are equal to 0. 
+    
 \end{frame}
+
+
 
 
 \section{Conclusion and perspectives}
@@ -1180,10 +1217,11 @@ Classifier using the rounding error of decompression~CITE
         \item Automatic game between Alice and Eve. 
         \pause
         \item Design of a new attack to optimize a cost map w.r.t. a set of classifiers
+        \pause
+        \item Reproducibility: available on Gitlab \url{https://gitlab.univ-lille.fr/solene.bernard/backpack}
         %\item Transferability: source dependance, domain adaptation, self-supervised learning
 
     \end{itemize}
-
 \end{frame}
 
 
@@ -1192,26 +1230,36 @@ Classifier using the rounding error of decompression~CITE
     %Limitations:
     \begin{itemize}
         \item Backpack very costly, and gets worst with increasing iterations of the protocol. 
+        
+        \begin{figure}[h]
+            \includegraphics[width=0.6\linewidth]{images/experience_512_100_0_01_SGE_exunet.pdf}
+        \end{figure}
+
+        \pause
+
         \begin{itemize}
             \item Distillation: to merge the knowledge of multiple classifiers
             \item Attacking a random subset of classifier
-            \item Deeper analysis about the crossing boundary.
+            \item Hyper-parameters to optimize for Backpack: number maximum of steps, learning rate, stopping condition.
         \end{itemize}
-        \pause
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Perspectives}
+
+    \begin{figure}[h]
+        \includegraphics[width=1\linewidth]{images/mismatch_payload.pdf}
+    \end{figure}
     
-        \item Source dependent: the whole protocol should be re-run for every cover source,     \begin{itemize}
-                \item diverse the cover source
-            \end{itemize}
-            
-        \pause 
+    \begin{itemize}
         \item Payload dependent: specific to the payload
             \begin{itemize}
                 \item diverse the payload
             \end{itemize}
-        
-        %\item Transferability: source dependance, domain adaptation, self-supervised learning
-
     \end{itemize}
+
 
 \end{frame}
 
@@ -1220,8 +1268,20 @@ Classifier using the rounding error of decompression~CITE
 \begin{frame}{Perspectives}
   
     \begin{itemize}
+    
+        \item Source dependent: the whole protocol should be re-run for every cover source,  
+                
+            \begin{itemize}
+                \item diverse the cover source
+            \end{itemize}
+            
+        \pause 
+        
         \item Improving the $\min\max$ strategy by considering mixed strategies
-
+            \begin{itemize}
+                \item Consider strategy profiles which are a distribution over the set of actions
+            \end{itemize}
+    
     \end{itemize}
 
 \end{frame}
