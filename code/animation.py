@@ -9,6 +9,8 @@ from matplotlib import rc
 import matplotlib.patches as patches
 from matplotlib.colors import LinearSegmentedColormap
 
+
+dpi = 100
 N = 5
 np.random.seed(4)
 x0 = np.random.randn(N,2)+3
@@ -64,7 +66,7 @@ for i,t in enumerate(np.linspace(0,1,31)[::-1]):
         plt.title(r'Trained $f_{\theta^\star}$')
         plt.annotate("Prague", (2,-0.75))
         plt.annotate("Lille", (2.5,0))
-    plt.savefig('../animation_training/'+str(i)+'.png', format='png')
+    plt.savefig('../animation_training/'+str(i)+'.png', format='png',dpi=dpi)
     plt.show()
 
 
@@ -90,7 +92,7 @@ for i,t in enumerate(np.linspace(0,1,31)[::-1]):
         plt.title(r'Trained $f_{\theta^\star}$')
         plt.annotate("Cover", (2,-0.75))
         plt.annotate("Stego", (2.5,0))
-    plt.savefig('../animation_training_stega/'+str(i)+'.png', format='png')
+    plt.savefig('../animation_training_stega/'+str(i)+'.png', format='png',dpi=dpi)
     plt.show()
     
     
@@ -148,7 +150,7 @@ for i,t in enumerate(np.linspace(0,1,31)[::-1]):
         plt.title(r'Trained $f_{\theta^\star}$')
         plt.annotate("Cover", (2,-0.4))
         plt.annotate("Stego", (2.6,1))
-    plt.savefig('../animation_retraining_stega/'+str(i)+'.png', format='png')
+    plt.savefig('../animation_retraining_stega/'+str(i)+'.png', format='png',dpi=dpi)
     plt.show()
     
     
@@ -180,7 +182,7 @@ for i in range(n):
     #plt.arrow(x, f(x), alpha, dx*alpha, width=0.1)
     plt.axis('off')
     plt.title('Optimization via gradient descent')
-    plt.savefig('../animation_gradient_descent/'+str(i)+'.png', format='png')
+    plt.savefig('../animation_gradient_descent/'+str(i)+'.png', format='png',dpi=dpi)
     plt.show()
 
 
@@ -239,12 +241,10 @@ for k,t in enumerate(np.linspace(0,1,n)):
     axs[1].set_title(r'Parameters $\theta$')
     plt.tight_layout()
     plt.subplots_adjust(wspace=0.2)
-    plt.savefig('../animation_gradient_descent/'+str(k)+'.png', format='png')
+    plt.savefig('../animation_gradient_descent/'+str(k)+'.png', format='png',dpi=dpi)
     plt.show()
     
     
-
-
 
 
 np.random.seed(43)
