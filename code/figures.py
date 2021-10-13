@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 from scipy.signal import convolve2d
 sys.path.append('../../Manuscript/phd-thesis/figures/')
-from tools import compute_jpeg_domain, compute_spatial_from_jpeg, compute_proba, c_quant_50, draw_modification
+from tools import compute_jpeg_domain, compute_spatial_from_jpeg, compute_proba, c_quant_50
 from scipy.stats import norm
 from matplotlib import rc
 #from tools_uniward import *
@@ -126,7 +126,7 @@ plt.savefig('../images/estoniecostmap.pdf', format='pdf')
 plt.show()
 
 rho3 = np.concatenate((rho[None],np.zeros((1,)+rho.shape),rho[None]))
-probas = compute_proba(rho3, 0.1*X_spat.size)[0]
+probas = compute_proba(rho3, 0.2*X_spat.size)
 b = draw_modification(probas, probas.shape[1])
 
 plt.figure(figsize=(12,2.2))
@@ -143,7 +143,7 @@ plt.title(r'$\{\rho_i\}$')
 plt.colorbar()
 
 plt.subplot(153)
-plt.imshow(probas,cmap=cmap)
+plt.imshow(probas[0],cmap=cmap)
 plt.axis('off')
 plt.title(r'$\{\pi_i\}$')
 plt.colorbar()
