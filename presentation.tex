@@ -79,12 +79,11 @@
 \setbeamertemplate{title page}[default]
 % --------
 
-
-
 \definecolor{lightgreen}{HTML}{EBF5E0}  % light green
 \definecolor{greentheme}{HTML}{7eb356}  % green
 \definecolor{orangetheme}{HTML}{ea9010}  % orange
 
+\setbeamersize{text margin left=1.5cm,text margin right=1.5cm}
 \setbeamercolor{structure}{fg=greentheme, bg=orangetheme!40}
 \setbeamercolor{alerted text}{fg=greentheme}
 %\setbeamercolor{progress bar}{greentheme}
@@ -155,29 +154,31 @@
 
 
 \begin{frame}{Context}
-\begin{center}
-\fbox{\begin{minipage}{24em}
 
-\setfont{frc}{Dear Bob,
+    \begin{center}
+        \fbox{\begin{minipage}{24em}
 
-Would you like to listen my new interpretation of Satie? I just published it on Soundcloud. Please be honest. 
+            \setfont{frc}{Dear Bob,
 
-Cheers,
+            Would you like to listen my new interpretation of Satie? I just published it on Soundcloud. Please be honest. 
 
-Alice
-}
-\end{minipage}}
-\end{center}
+            Cheers,
+
+            Alice
+            }
+        \end{minipage}}
+    \end{center}
+
 \end{frame}
 
 
 
 \begin{frame}{Context}
-\begin{figure}[h]
-    \includegraphics[width=0.4\textwidth]{images/soundcloud_logo_2.png}\\\vspace{2em}
-    \includegraphics[width=\textwidth]{images/soundcloud.png}%
-    %\includemedia[addresource=stego.mp3,flashvars={source=stego.mp3,&autoPlay=false}]{Play}{APlayer.swf}
-\end{figure}
+    \begin{figure}[h]
+        \includegraphics[width=0.4\textwidth]{soundcloud_logo_2.png}\\\vspace{2em}
+        \includegraphics[width=\textwidth]{soundcloud.png}%
+        %\includemedia[addresource=stego.mp3,flashvars={source=stego.mp3,&autoPlay=false}]{Play}{APlayer.swf}
+    \end{figure}
 \end{frame}
 
 
@@ -189,46 +190,45 @@ Alice
 
 
 \begin{frame}{Context}
-%\animategraphics[width=\linewidth]{25}{animation_stego_music/}{0}{29}
+\animategraphics[width=0.9\linewidth]{25}{animation_stego_music/}{0}{29}
 %\includemedia[addresource=stegodecode.mp3,flashvars={source=stegodecode.mp3,&autoPlay=false}]{Play}{APlayer.swf}
 \end{frame}
 
 
 \begin{frame}{Context}
-\begin{figure}[h]
-\includegraphics[height=0.9\textheight]{images/schema_stego0.pdf}
-\end{figure}
+    \begin{figure}[h]
+        \includegraphics[height=0.9\textheight]{schema_stego0.pdf}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Context}
-\begin{figure}[h]
-\includegraphics[height=0.9\textheight]{images/schema_stego.pdf}
-\end{figure}
+    \begin{figure}[h]
+        \includegraphics[height=0.9\textheight]{schema_stego.pdf}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Context}
-\begin{figure}[h]
-\includegraphics[height=0.9\textheight]{images/schema_stego1.pdf}
-\end{figure}
+    \begin{figure}[h]
+        \includegraphics[height=0.9\textheight]{schema_stego1.pdf}
+    \end{figure}
 \end{frame}
     
 
 \begin{frame}{Context}
-\begin{figure}[h]
-\includegraphics[height=0.9\textheight]{images/schema_stego2.pdf}
-\end{figure}
-\pause
-\alert{Kerckhoffs’s principle}: Eve knows everything about Alice's strategy, except the secret key.
+    \begin{figure}[h]
+        \includegraphics[height=0.9\textheight]{schema_stego2.pdf}
+    \end{figure}
+    
 \end{frame}
 
 \begin{frame}{Modern usage of steganography}
-\begin{itemize}
-    \setlength\itemsep{2em}
-    \item In some countries the cryptography is prohibited (China, Russia, Colombia, ...) or restricted (France, UK, ...). 
-    \item Used by terrorists: an Al Qaeda operative by splicing a video into a copy of the Bruce Willis movie "Die Hard:
-    With a Vengeance." \textit{NY Times, 08/11/2006}
-    \item Used by pedocriminals
-\end{itemize}
+    \begin{itemize}
+        \setlength\itemsep{2em}
+        \item In some countries the cryptography is prohibited (China, Russia, Colombia, ...) or restricted (France, UK, ...). 
+        \item Used by terrorists: an Al Qaeda operative by splicing a video into a copy of the Bruce Willis movie "Die Hard:
+        With a Vengeance." \textit{NY Times, 08/11/2006}
+        \item Used by pedocriminals
+    \end{itemize}
 \end{frame}
 
 %\begin{frame}{Context}
@@ -243,76 +243,69 @@ Alice
 
 \begin{frame}{Digital image structure: Spatial or JPEG}
 
-\begin{figure}[h]
-\includegraphics[width=0.8\linewidth]{images/image_structure.pdf}
-\end{figure}
+    \begin{figure}[h]
+        \includegraphics[width=0.8\linewidth]{image_structure.pdf}
+    \end{figure}
+
     % \begin{center}
     %         \begin{tabular}{m{5cm} m{5cm}}
     %              Pixels & DCT coefficients
     %         \end{tabular}
     % \end{center}
+
 \end{frame}
 
 
 \begin{frame}{The first digital images steganographic scheme: LSB replacement}
 
-Steganography by cover modification. Adding -1, 0 or +1 to pixels.
-
-\alert{LSB} = "\alert{L}east \alert{S}ignificant \alert{B}it"
-\begin{figure}[h]
-\includegraphics[width=\linewidth]{images/lsbreplacement2.pdf}
-\end{figure}
+    Steganography by cover modification. Adding -1, 0 or +1 to pixels.
+    \alert{LSB} = "\alert{L}east \alert{S}ignificant \alert{B}it"
+    \begin{figure}[h]
+        \includegraphics[width=\linewidth]{lsbreplacement2.pdf}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{The importance of adaptability to the cover image}
-Presence of strong \alert{statistical features} in \textit{natural} images.
-\begin{figure}[h]
-\includegraphics[width=\linewidth]{images/estonie_LSB.pdf}
-\end{figure}
+    Presence of strong \alert{statistical features} in \textit{natural} images.
+    \begin{figure}[h]
+        \includegraphics[width=\linewidth]{estonie_LSB.pdf}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{The importance of adaptability to the cover image}
-Presence of strong \alert{statistical features} in \textit{natural} images.
-\begin{figure}[h]
-\includegraphics[width=\linewidth]{images/estonie_random.pdf}
-%\caption{Gray scaled image, and display of the LSB of each pixel}
-\end{figure}
+    Presence of strong \alert{statistical features} in \textit{natural} images.
+    \begin{figure}[h]
+        \includegraphics[width=\linewidth]{estonie_random.pdf}
+        %\caption{Gray scaled image, and display of the LSB of each pixel}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Adaptative steganography: cost of modification}
-\begin{figure}[h]
-\includegraphics[width=0.7\linewidth]{images/cost.pdf}
-\end{figure}
+    \begin{figure}[h]
+        \includegraphics[width=0.7\linewidth]{cost.pdf}
+    \end{figure}
 \end{frame}
 
 
 \begin{frame}{Adaptative steganography: cost of modification}
 
-% The \alert{cost map}: set of individual all costs \alert{$\{\rho_i^b\}_i$} of changing the $i$-th pixel by adding value $b$.
-
-% \pause
-
-%In practice, the costs are usually computed from the cover image $\mathbf{x}$ using \alert{heuristic principles}.
-
-Computation of costs via \alert{heuristic principles}. 
-
-
-Example:
-
+    Computation of costs via \alert{heuristic principles}. 
+    \pause
+    %Example:
     \begin{tabular}{p{0.5\linewidth}p{0.5\linewidth}}
         %\begin{itemize}
             In the spatial domain:
                 \begin{itemize}
-                    \item HILL~\footfullcite{hill}. 
+                    \item SI-UNIWARD~\footfullcite{juni}
+                    \item HILL~\footfullcite{hill}: 
                         \begin{equation*}
                             \rho=\frac{1}{|\mathbf{x} \star H| \star L 1} \star L_{2}
                         \end{equation*}
                 \end{itemize}
-             & In the JPEG domain:
+            & In the JPEG domain:
                 \begin{itemize}
                     %\item HUGO~\footfullcite{hugo}
                     \item J-UNIWARD~\footfullcite{juni}
-                    \item SI-UNIWARD~\footfullcite{juni}
                     \item UERD~\footfullcite{uerd}
                 \end{itemize}
             
@@ -325,32 +318,26 @@ Example:
 
 
 \begin{frame}{Adaptative steganography: cost of modification}
-\begin{figure}[h]
-\includegraphics[width=\linewidth]{images/estoniecostmap.pdf}
-\end{figure}
+    \begin{figure}[h]
+        \includegraphics[width=\linewidth]{estoniecostmap.pdf}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Alice's objective: embedding while minimizing the distortion}
-
-\begin{tcolorbox}[colback=lightgreen,colframe=greentheme,title=\textbf{Definition} (Distortion)]
-For an additive cost map $\{\rho_i^b\}$, the  distortion $D$ between the cover $\vec{x}$ and the stego $\vec{y}$ is equal to:
-
-\begin{equation}
-D(\mathbf{x},\mathbf{y}) = \sum_i \rho_i^{y_i - x_i}
-\end{equation}
-
-\end{tcolorbox}
+    \begin{tcolorbox}[colback=lightgreen,colframe=greentheme,title=\textbf{Definition} (Distortion)]
+        For an additive cost map $\{\rho_i^b\}$, the  distortion $D$ between the cover $\vec{x}$ and the stego $\vec{y}$ is equal to:
+        \begin{equation}
+            D(\mathbf{x},\mathbf{y}) = \sum_i \rho_i^{y_i - x_i}
+        \end{equation}
+    \end{tcolorbox}
 \end{frame}
 
-
-
-
 \begin{frame}{Hiding a message with matrix embedding}
-\begin{figure}[h]
-\includegraphics[height=0.5\textheight]{images/formulaSTC.pdf}
-\end{figure}
-\pause
-Algorithm Syndrome-Trellis Code (STC)~\footfullcite{filler2011minimizing} achieves optimal coding, but costly.
+    \begin{figure}[h]
+        \includegraphics[height=0.5\textheight]{formulaSTC.pdf}
+    \end{figure}
+    \pause
+    Algorithm Syndrome-Trellis Code (STC)~\footfullcite{filler2011minimizing} achieves optimal coding, but costly.
 \end{frame}
 
 
@@ -362,8 +349,6 @@ Algorithm Syndrome-Trellis Code (STC)~\footfullcite{filler2011minimizing} achiev
 %     D = 5\times \textcolor{greentheme}{1} +  3\times \textcolor{greentheme}{1} + 1\times \textcolor{greentheme}{1} +  2 \times \textcolor{greentheme}{0} + 4 \times \textcolor{greentheme}{1} +  3 \times \textcolor{greentheme}{0} = 13
 % \end{equation*}
 % \end{frame}
-
-
 
 
 % \begin{frame}{Hiding a message with matrix embedding}
@@ -413,63 +398,49 @@ Algorithm Syndrome-Trellis Code (STC)~\footfullcite{filler2011minimizing} achiev
 
 \begin{frame}{Simulated steganography - The theory}
 
+    Simulation of embedding, with
+    \begin{itemize}
+        \item an additive cost map $\{\rho_i^b\}$ and 
+        \item a length of the hypothetical message $|m|$. 
+    \end{itemize}
 
-% \begin{tcolorbox}[colback=lightgreen,colframe=greentheme,title=\textbf{Theorem} (Optimal distribution w.r.t. distortion)]
+    \pause 
+    Categorical distribution of change for each image coefficient:
 
-% For a given cover $\mathbf{x}$, an additive cost map $\{\rho_i^b\}_i$, and the set of reachable stegos $\mathcal{Y}(\mathbf{x})$, the solution of the PLS problem is reached for the following distribution:
+    \begin{equation}
+        \pi_{i}^b = P_i^j\left(\rho_{i}, \lambda\right) = \frac{e^{-\lambda \rho_{i}^{b}}}{\sum_{b^{\prime} \in \{-1,0,+1\}} e^{-\lambda \rho_{i}^{b^{\prime}}}}
+    \end{equation}
 
-Simulation of embedding, with
-\begin{itemize}
-    \item an additive cost map $\{\rho_i^b\}$ and 
-    \item an embedding rate $|m|$. 
-\end{itemize}
+    \pause
+    where $\lambda$ determined from the entropy constraint:
 
-\pause 
+    \begin{equation}
+        \operatorname{Entropy}(\{\pi_i^b\}) = H(\{\pi_i^b\}) = |m|,
+    \end{equation}
 
-Categorical distribution of change for each image coefficient:
-
-\begin{equation}
-\pi_{i}^b =\frac{e^{-\lambda \rho_{i}^{b}}}{\sum_{b^{\prime} \in \{-1,0,+1\}} e^{-\lambda \rho_{i}^{b^{\prime}}}}
-\end{equation}
-
-\pause
-where $\lambda$ determined from the entropy constraint:
-
-\begin{equation}
-\operatorname{Entropy}(\{\pi_i^b\}) = H(\{\pi_i^b\}) = |m|,
-\end{equation}
-
-with $H$ the binary entropy.
-
-% \end{tcolorbox}
-
+    with $H$ the binary entropy.
 
 \end{frame}
 
+
 \begin{frame}{Simulated steganography}
 
-Pipeline from the cover to the simulated stego:
+    Pipeline from the cover to the simulated stego:
 
-\begin{equation*}
-\begin{array}{ccccccccc}
-    \mathbf{x} & \longrightarrow & \{\rho^b_i\}_i & \longrightarrow & \{\pi_i^b\}_i &   \xrightarrow{\mbox{\footnotesize{draw}}} & \{b_i\}_i &  \longrightarrow & \mathbf{y} = \mathbf{x} + \mathbf{b} \\ \\
-    \mbox{\footnotesize{cover}} & & \mbox{\footnotesize{costs}} & & \mbox{\footnotesize{probabilities}} & & \mbox{\footnotesize{changes}} & &  \mbox{\footnotesize{stego}}
-    
-\end{array}
-\end{equation*}
+    \begin{equation*}
+        \begin{array}{ccccccccc}
+            \mathbf{x} & \longrightarrow & \{\rho^b_i\}_i & \longrightarrow & \{\pi_i^b\}_i &   \xrightarrow{\mbox{\footnotesize{draw}}} & \{b_i\}_i &  \longrightarrow & \mathbf{y} = \mathbf{x} + \mathbf{b} \\ \\
+            \mbox{\footnotesize{cover}} & & \mbox{\footnotesize{costs}} & & \mbox{\footnotesize{probabilities}} & & \mbox{\footnotesize{changes}} & &  \mbox{\footnotesize{stego}}
+        \end{array}
+    \end{equation*}
 
-\pause 
+    \begin{figure}[h]
+        %\hspace{-3em}
+        \centerline{\includegraphics[width=1\linewidth]{estonie_pipeline.pdf}}
+    \end{figure}
 
-\begin{figure}[h]
-%\hspace{-3em}
-\centerline{\includegraphics[width=1\linewidth]{images/estonie_pipeline.pdf}}
-\end{figure}
-
-\pause
-
-%For $\mathcal{X}$ cover set, $\mathcal{R}$ cost set, distribution of stego is noted $P_\mathcal{Y(\mathcal{X},\mathcal{R})}$.
-
-$\mathcal{A}_a = \{\mathcal{Y}\}$ where $\mathcal{Y}$ stegos obtained from cover set $\mathcal{X}$ with cost maps $\mathcal{R}$.
+    \pause
+    $\mathcal{A}_a = \{\mathcal{Y}\}$ where $\mathcal{Y}$ stegos obtained from cover set $\mathcal{X}$ with cost maps $\mathcal{R}$.
 
 \end{frame}
 
@@ -503,32 +474,26 @@ $\mathcal{A}_a = \{\mathcal{Y}\}$ where $\mathcal{Y}$ stegos obtained from cover
 
 \section*{Steganalysis}
 
-
 \begin{frame}{Steganalysis}
 
+    \begin{center}
+        \alert{Detecting the presence of a message in an image.}
+    \end{center}
 
-\begin{center}
-    \alert{Detecting the presence of a message in an image.}
-\end{center}
+    \pause
+    Historically (until 2015): via features extraction followed by classification, for example histogram attacks~\footfullcite{fridrich2001detecting}.
 
-\pause
-
-Historically (until 2015): via features extraction followed by classification, for example histogram attacks~\footfullcite{fridrich2001detecting}.
-
-\begin{figure}
-        \includegraphics[width=0.9\linewidth]{images/histograms.pdf}
-\end{figure}
+    \begin{figure}
+        \includegraphics[width=0.9\linewidth]{histograms.pdf}
+    \end{figure}
 
 \end{frame}
 
-\begin{frame}{Machine learning for automatic binary classification}
-%\animategraphics[width=\linewidth]{25}{animation_training/}{0}{30}
-\end{frame}
 
 \begin{frame}{Machine learning - Parameters, loss and optimization}
 
-\begin{itemize}
-    \setlength\itemsep{2em}
+    \begin{itemize}
+        \setlength\itemsep{2em}
 
         \item \alert{Parameters}: $f$ a function parametrized by parameters $\theta = \{\mathbf{w}, b \}$, for example:
             \begin{equation}
@@ -540,54 +505,70 @@ Historically (until 2015): via features extraction followed by classification, f
 
         \pause
         \item \alert{Optimization}: $f$ optimized via gradient descent with $\grad_\theta f$, via \textbf{backpropagation}.
-            
+                
     \end{itemize}
 
 \end{frame}
 
 
+\begin{frame}{Machine learning for automatic binary classification}
+    \animategraphics[width=0.9\linewidth]{25}{animation_training/}{0}{30}
+\end{frame}
 
 
 \begin{frame}{Steganalysis}
 
-Since 2015: \alert{Convolution Neural Networks (CNN)}. 
+    Since 2015: \alert{Convolution Neural Networks (CNN)}. 
 
-\begin{tabular}{p{0.5\linewidth}p{0.5\linewidth}}
-    
-    
-Classifier $f$, where $f : \mathcal{I} \rightarrow [0,1]$.
+    \begin{tabular}{p{0.5\linewidth}p{0.5\linewidth}}
+        
+        Classifier $f$, where $f : \mathcal{I} \rightarrow [0,1]$.
 
-\begin{equation*}
-    \left\{
-    \begin{array}{ll}
-    f(\mathbf{x}) < 0.5 & \mbox{ if } \mathbf{x}\mbox{ cover} \\
-    f(\mathbf{x}) \geq 0.5 & \mbox{ if } \mathbf{x}\mbox{ stego} \\
-    \end{array}
-    \right.
-\end{equation*}
+        \begin{equation*}
+            \left\{
+            \begin{array}{ll}
+            f(\mathbf{x}) < 0.5 & \mbox{ if } \mathbf{x}\mbox{ cover} \\
+            f(\mathbf{x}) \geq 0.5 & \mbox{ if } \mathbf{x}\mbox{ stego} \\
+            \end{array}
+            \right.
+        \end{equation*}
 
-\pause
+        \pause
+        & Sate-of-the-art of architectures:
+        \begin{itemize}
+            \item XU-Net~\footfullcite{xu2017deep},
+            %\item Ye-Net~
+            \item SRNet~\footfullcite{boroumand2018deep},
+            \item Efficient-Net~\footfullcite{tan2019efficientnet}
+        \end{itemize}
 
-& Sate-of-the-art of architectures:
-\begin{itemize}
-    \item XU-Net~\footfullcite{xu2017deep},
-    %\item Ye-Net~
-    \item SRNet~\footfullcite{boroumand2018deep},
-    \item Efficient-Net~\footfullcite{tan2019efficientnet}
-\end{itemize}
+    \end{tabular}
 
-\end{tabular}
-
-% Notation: $f : \mathcal{I} \rightarrow [0,1]$.
-
-\pause
-
-$\mathcal{A}_e$ set of classifiers of Eve.
+    \pause
+    $\mathcal{A}_e$ set of classifiers of Eve.
 
 \end{frame}
 
 
+\begin{frame}{Adversarial steganography}
+    \animategraphics[width=0.9\linewidth]{25}{animation_adversarial_stego/}{0}{30}
+\end{frame}
 
+
+\begin{frame}{Adversarial steganography}
+    \animategraphics[width=0.9\linewidth]{25}{animation_retraining_stega/}{0}{30}
+\end{frame}
+
+
+\begin{frame}{The problem we tackle}
+
+    \centering{\alert{\Large{How to optimize cost maps w.r.t. a set of steganalysts?}}}
+
+    \pause
+    \vspace{2em}
+    \alert{Kerckhoffs’s principle}: Eve knows everything about Alice's strategy, except the secret key.
+    
+\end{frame}
 
 
 % \begin{frame}{Adversarial steganography}
@@ -605,131 +586,121 @@ $\mathcal{A}_e$ set of classifiers of Eve.
 
 
 \begin{frame}{Table of contents}
-  \setbeamertemplate{section in toc}[sections numbered]
-  \tableofcontents[hideallsubsections]
+    \setbeamertemplate{section in toc}[sections numbered]
+    \tableofcontents[hideallsubsections]
 \end{frame}
 
+
+
 \section{Playing an iterative game with a \textbf{minmax} protocol}
+
+
+\begin{frame}{Adversarial steganography}
+    \begin{figure}
+        \includegraphics[width=0.6\linewidth]{pingpong.pdf}
+    \end{figure}
+\end{frame}
+
 
 \begin{frame}{Past applications of game theory}
 
     \begin{itemize}
-        \item  Paper~\footfullcite{ker2016rethinking} shows for an aware steganalyst of the costs,  minimizing $\sum_{i,j} \pi_i^j \rho_i^j$ is \textit{naive}. The steganographer should play the minmax and equilibrium strategy: instead minimizing $\sum_{i, j, k} \pi_{i}^{j} c_{i}^{j, k} \pi_{i}^{k}$.
-        \item  
+        %\item  Paper~\footfullcite{ker2016rethinking} shows for an aware steganalyst of the costs,  minimizing $\sum_{i,j} \pi_i^j \rho_i^j$ is \textit{naive}. The steganographer should play the minmax and equilibrium strategy: instead minimizing $\sum_{i, j, k} \pi_{i}^{j} c_{i}^{j, k} \pi_{i}^{k}$.
+        \item Paper~\footfullcite{schottle2015game}
+        \item Paper~\footfullcite{ker2016rethinking} proposes to solve the minmax and equilibrium strategy, when the steganalyst is aware of the cost map. But stays in a theoretical context.
     \end{itemize}
     
 \end{frame}
 
-\begin{frame}{Adversarial steganography}
-%\animategraphics[width=\linewidth]{25}{animation_adversarial_stego/}{0}{30}
-\end{frame}
 
 
-\begin{frame}{Adversarial steganography}
-%\animategraphics[width=\linewidth]{25}{animation_retraining_stega/}{0}{30}
-\end{frame}
-
-
-
-\begin{frame}{Adversarial steganography}
-  \begin{figure}
-        \includegraphics[width=0.7\linewidth]{images/pingpong.pdf}
-    \end{figure}
-\end{frame}
 
 
 
 \begin{frame}{Players with antagonists roles}
 
+    \begin{tcolorbox}[colback=lightgreen,colframe=greentheme,title=\textbf{Definition} (Eve's utility)]
+        For $(\mathcal{Y}, f)  \in \mathcal{A}_a \times \mathcal{A}_e$, Eve's utility is the accuracy of classification of $f$ between $\mathcal{X}$ and $\mathcal{Y}$, ie:
+            \begin{equation}
+                u_e(\mathcal{Y}, f) = \mathbb{E}_{\mathbf{x}\sim P_{\mathcal{X}}}[f(\mathbf{x}) < 0.5] + \mathbb{E}_{\mathbf{y} \sim \mathcal{Y}}[f(\mathbf{y})_ \geq 0.5]
+            \end{equation}
+    \end{tcolorbox}
 
-\begin{tcolorbox}[colback=lightgreen,colframe=greentheme,title=\textbf{Definition} (Eve's utility)]
-For $(\mathcal{Y}, f)  \in \mathcal{A}_a \times \mathcal{A}_e$, Eve's utility is the accuracy of classification of $f$ between $\mathcal{X}$ and $\mathcal{Y}$, ie:
-\begin{equation}
-    u_e(\mathcal{Y}, f) = \mathbb{E}_{\mathbf{x}\sim P_{\mathcal{X}}}[f(\mathbf{x}) < 0.5] + \mathbb{E}_{\mathbf{y} \sim \mathcal{Y}}[f(\mathbf{y})_ \geq 0.5]
-\end{equation}
-\end{tcolorbox}
-
-
-\pause
-
-
-\begin{tcolorbox}[colback=lightgreen,colframe=greentheme,title=\textbf{Definition} (Alice's utility)]
-For $(\mathcal{Y}, f)  \in \mathcal{A}_a \times \mathcal{A}_e$, Alice's utility is equal to the opposite of Eve's utility:
-\begin{equation}
-    u_a(\mathcal{Y}, f) = - u_e(\mathcal{Y}, f)
-\end{equation}
-\end{tcolorbox}
+    \pause
+    \begin{tcolorbox}[colback=lightgreen,colframe=greentheme,title=\textbf{Definition} (Alice's utility)]
+        For $(\mathcal{Y}, f)  \in \mathcal{A}_a \times \mathcal{A}_e$, Alice's utility is equal to the opposite of Eve's utility:
+            \begin{equation}
+                u_a(\mathcal{Y}, f) = - u_e(\mathcal{Y}, f)
+            \end{equation}
+    \end{tcolorbox}
 
 \end{frame}
+
 
 \begin{frame}{Game theory expression of the problem}
 
-Solution concept:
-
-\alert{
-    \Large{
-        \begin{equation*}
-        \underset{\mathcal{A}_a}{\argmin} \max_{\mathcal{A}_e} u_e(\mathcal{Y}, f)
-        \end{equation*}
+    Solution concept:
+    \alert{
+        \Large{
+            \begin{equation*}
+            \underset{\mathcal{A}_a}{\argmin} \max_{\mathcal{A}_e} u_e(\mathcal{Y}, f)
+            \end{equation*}
+        }
     }
-}
 
+    \pause
+    Solution approximated via a \alert{double oracle}~\footfullcite{adam2021double} algorithm.
+    
 \end{frame}
 
     
-
 \begin{frame}{Approximation with an iterative game}
-  \begin{figure}
-        \includegraphics[width=0.7\linewidth]{images/increasing_game_0.pdf}
-\end{figure}
+    \begin{figure}
+        \includegraphics[width=0.7\linewidth]{increasing_game_0.pdf}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Approximation with an iterative game}
-  \begin{figure}
-        \includegraphics[width=0.7\linewidth]{images/increasing_game_1.pdf}
-\end{figure}
-\end{frame}
-
-
-\begin{frame}{Approximation with an iterative game}
-  \begin{figure}
-        \includegraphics[width=0.7\linewidth]{images/increasing_game_1_bis.pdf}
-\end{figure}
-\end{frame}
-
-
-\begin{frame}{Approximation with an iterative game}
-  \begin{figure}
-        \includegraphics[width=0.7\linewidth]{images/increasing_game_2.pdf}
-\end{figure}
+    \begin{figure}
+        \includegraphics[width=0.7\linewidth]{increasing_game_1.pdf}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Approximation with an iterative game}
-  \begin{figure}
-        \includegraphics[width=0.7\linewidth]{images/increasing_game_2_bis.pdf}
-\end{figure}
+    \begin{figure}
+        \includegraphics[width=0.7\linewidth]{increasing_game_1_bis.pdf}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Approximation with an iterative game}
-  \begin{figure}
-        \includegraphics[width=0.7\linewidth]{images/increasing_game_3.pdf}
-\end{figure}
+    \begin{figure}
+        \includegraphics[width=0.7\linewidth]{increasing_game_2.pdf}
+    \end{figure}
 \end{frame}
-
 
 \begin{frame}{Approximation with an iterative game}
-  \begin{figure}
-        \includegraphics[width=0.7\linewidth]{images/increasing_game_4.pdf}
-\end{figure}
+    \begin{figure}
+        \includegraphics[width=0.7\linewidth]{increasing_game_2_bis.pdf}
+    \end{figure}
 \end{frame}
-
 
 \begin{frame}{Approximation with an iterative game}
-  \begin{figure}
-        \includegraphics[width=0.7\linewidth]{images/increasing_game_5.pdf}
-\end{figure}
+    \begin{figure}
+        \includegraphics[width=0.7\linewidth]{increasing_game_3.pdf}
+    \end{figure}
 \end{frame}
 
+\begin{frame}{Approximation with an iterative game}
+    \begin{figure}
+        \includegraphics[width=0.7\linewidth]{increasing_game_4.pdf}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Approximation with an iterative game}
+    \begin{figure}
+        \includegraphics[width=0.7\linewidth]{increasing_game_5.pdf}
+    \end{figure}
+\end{frame}
 
 
 % \begin{frame}{The $\min\max$ protocol}
@@ -755,22 +726,19 @@ Solution concept:
 % \end{frame}
 
 \begin{frame}{The $\min\max$ protocol}
-
-Initialization: $\mathcal{A}_e = \fset^{0} = \{f^0\}$,  $\mathcal{A}_a = \{\mathcal{Y}^0\}$.
-\pause
-
-At~$k^{\mathrm{th}}$ iteration, the two following macro-steps: 
-\begin{enumerate}
-	\item \alert<2>{Alice's turn.} 
-	\begin{equation}
-	\mathbf{y}^\ast = \arg \min_{\mathbf{y} \in \mathcal{A}_a} \max_{f \in \fset^{k-1}} f(\mathbf{y});
-	\label{eq:stepone}	
-	\end{equation}
+    Initialization: $\mathcal{A}_e = \fset^{0} = \{f^0\}$,  $\mathcal{A}_a = \{\mathcal{Y}^0\}$.
     \pause
-	\item Eve's turn. Creation of a new detector $\fdet^k$ and appends it to the pool, i.e. $\fset^k = \fset^{k-1} \cup \{\fdet^k\}.$
-\end{enumerate}
+    At~$k^{\mathrm{th}}$ iteration, the two following macro-steps: 
+    \begin{enumerate}
+        \item \alert<2>{Alice's turn.} 
+            \begin{equation}
+                \mathbf{y}^\ast = \arg \min_{\mathbf{y} \in \mathcal{A}_a} \max_{f \in \fset^{k-1}} f(\mathbf{y});
+                \label{eq:stepone}	
+            \end{equation}
+            \pause
+        \item Eve's turn. Creation of a new detector $\fdet^k$ and appends it to the pool, i.e. $\fset^k = \fset^{k-1} \cup \{\fdet^k\}.$
+    \end{enumerate}
 \end{frame}
-
 
 % \begin{frame}{2. Eve's turn: iteration $k$}
 % \pause
@@ -786,25 +754,24 @@ At~$k^{\mathrm{th}}$ iteration, the two following macro-steps:
     \begin{enumerate}
 
         \item \alert{Alice's new action:}
-
-        \begin{equation*}
-            \begin{array}{ccccccccccc}
-                \mathbf{x} & \longrightarrow & \{\rho_i\}_i & \longrightarrow & \{\pi_i^b\}_i &   \xrightarrow{\mbox{\footnotesize{draw}}} & \{b_i\}_i &  \longrightarrow & \mathbf{y} & \longrightarrow  & f(\mathbf{y}) \\
-                & & & & & & & & & \alert{\xleftarrow{ \nabla_{\mathbf{y}} f(\mathbf{y}) }} 
-            \end{array}    
-        \end{equation*}
+            \begin{equation*}
+                \begin{array}{ccccccccccc}
+                    \mathbf{x} & \longrightarrow & \{\rho_i\}_i & \longrightarrow & \{\pi_i^b\}_i &   \xrightarrow{\mbox{\footnotesize{draw}}} & \{b_i\}_i &  \longrightarrow & \mathbf{y} & \longrightarrow  & f(\mathbf{y}) \\
+                    & & & & & & & & & \alert{\xleftarrow{ \nabla_{\mathbf{y}} f(\mathbf{y}) }} 
+                \end{array}    
+            \end{equation*}
 
         ADV-EMB~\footfullcite{tang2019cnn} proposes the following update rule, with $\alpha=2$:
         \begin{equation}
-        \rho_{i}^{+, new} = 
-        \left\{
-            \begin{array}{ll}
-                \rho_{i}^+/\alpha & \mbox{if } \frac{\partial f}{\partial y_{i}}\left(\mathbf{y}\right) < 0, \\
-                \rho_{i}^+ & \mbox{if } \frac{\partial f}{\partial y_{i}}\left(\mathbf{y}\right) = 0, \\
-                \rho_{i}^+ \alpha & \mbox{if } \frac{\partial f}{\partial y_{i}}\left(\mathbf{y}\right) > 0,
-            \end{array}
-        \right.
-        \label{eq:qplus}
+            \rho_{i}^{+, new} = 
+            \left\{
+                \begin{array}{ll}
+                    \rho_{i}^+/\alpha & \mbox{if } \frac{\partial f}{\partial y_{i}}\left(\mathbf{y}\right) < 0, \\
+                    \rho_{i}^+ & \mbox{if } \frac{\partial f}{\partial y_{i}}\left(\mathbf{y}\right) = 0, \\
+                    \rho_{i}^+ \alpha & \mbox{if } \frac{\partial f}{\partial y_{i}}\left(\mathbf{y}\right) > 0,
+                \end{array}
+            \right.
+            \label{eq:qplus}
         \end{equation}
 
         \pause
@@ -821,55 +788,59 @@ At~$k^{\mathrm{th}}$ iteration, the two following macro-steps:
 
 
 % \begin{frame}{1. Alice's turn}
-
 % ADV-EMB can be used to solve equation~(\ref{eq:stepone}). 
 % X
 % It is achevied by computing the set $$\{\arg \min_{\mathbf{z} \in \mathcal{A}_a} f^k(\mathbf{z})\}_k$$ 
-
 % and then computing 
-
 % $$y = \arg \min_{\mathbf{z} \in \mathcal{A}_a} \max_k f^k(\mathbf{z})$$
-
-
 % \end{frame}
-
-
-
-
-
 
 
 \begin{frame}{Results - How to read the plots }
     \begin{figure}
-        \includegraphics[width=0.7\linewidth]{images/results3.pdf}
+        \includegraphics[width=0.7\linewidth]{results3.pdf}
     \end{figure}
+\end{frame}
 
-    \pause
-
+\begin{frame}{Results - Experiments conditions}
+    
     Mismatch between what assumes Alice can differ from the real actions of Eve. 
-    $$ \mathcal{A}_e \neq \tilde{\mathcal{A}}_e $$
+    \begin{equation*}
+        \begin{array}{ccc}
+            \underbrace{\mathcal{A}_e}_{\mbox{Assumed Eve's actions}} & \neq & \underbrace{\tilde{\mathcal{A}}_e}_{\mbox{Real Eve's actions}} \\
+            \pause \alert{\mbox{Targeted models}} & & \alert{\mbox{Blind models}}
+        \end{array}
+    \end{equation*}
+    
+    \pause
+    Comparison of different strategies: 
+    \begin{itemize}
+        \item  Minmax: $\mathbf{y}^\ast = \arg \min_{\mathbf{y} \in \mathcal{A}_a} \max_{f \in \fset^{k-1}} f(\mathbf{y})$;
+        \item  Last iteration: $\mathbf{y}^\ast = \arg \min_{\mathbf{y} \in \mathcal{A}_a}  f^{k-1}(\mathbf{y})$;
+        \item  Random: $\mathbf{y}^\ast = \arg \min_{\mathbf{y} \in \mathcal{A}_a}  f^i(\mathbf{y})$ for $i\sim [0,\dots,k-1]$. 
+    \end{itemize}
 
 \end{frame}
 
 
 \begin{frame}{Results - Comparison of strategies for JPEG at QF 75 and different payloads (bpnzAC)}
     \begin{figure}
-        \includegraphics[width=0.8\linewidth]{images/minmax_prot_1.pdf}
-        \includegraphics[width=0.8\linewidth]{images/abcisses.pdf}
+        \includegraphics[width=0.8\linewidth]{minmax_prot_1.pdf}
+        \includegraphics[width=0.8\linewidth]{abcisses.pdf}
     \end{figure}
 \end{frame}
 
 \begin{frame}{Results - Comparison of strategies for JPEG at QF 75 and different payloads (bpnzAC)}
     \begin{figure}
-        \includegraphics[width=0.8\linewidth]{images/minmax_prot_2.pdf}
-        \includegraphics[width=0.8\linewidth]{images/abcisses.pdf}
+        \includegraphics[width=0.8\linewidth]{minmax_prot_2.pdf}
+        \includegraphics[width=0.8\linewidth]{abcisses.pdf}
     \end{figure}
 \end{frame}
 
 \begin{frame}{Results - With different adversaries for JPEG QF 75, payload 0.4 bpnzAC}
     \begin{figure}
-        \includegraphics[width=0.8\linewidth]{images/minmax_prot_3.pdf}
-        \includegraphics[width=0.8\linewidth]{images/abcisses.pdf}
+        \includegraphics[width=0.8\linewidth]{minmax_prot_3.pdf}
+        \includegraphics[width=0.8\linewidth]{abcisses.pdf}
     \end{figure}
 \end{frame}
 
@@ -908,7 +879,7 @@ At~$k^{\mathrm{th}}$ iteration, the two following macro-steps:
             \end{equation*} 
             
             \begin{figure}
-                \includegraphics[width=0.9\linewidth]{images/minmax_evolution_it9.pdf}
+                \includegraphics[width=0.9\linewidth]{minmax_evolution_it9.pdf}
              \end{figure}
               
     \end{itemize}
@@ -933,22 +904,23 @@ At~$k^{\mathrm{th}}$ iteration, the two following macro-steps:
     \end{equation*}
         
     \pause
-   \begin{enumerate}
-       \item Approximation of discrete modification by continuous modifications controlled by a temperature $\tau$ 
-       \begin{equation*}
-    \begin{array}{ccccccccccc}
-        \mathbf{x} \longrightarrow \{\rho_i\}_i \longrightarrow  \{\pi_i^b\}_i    \alert{\xrightarrow{B} } \{\tilde{b}_i\}_i   \longrightarrow  \tilde{\mathbf{y}}  \longrightarrow  & \mathbb{E}[f(\tilde{\mathbf{y}})]
-    \end{array}
-    \end{equation*}
+    \begin{enumerate}
+        \item Approximation of discrete modification by continuous modifications controlled by a temperature $\tau$ 
+            \begin{equation*}
+                \begin{array}{ccccccccccc}
+                    \mathbf{x} \longrightarrow \{\rho_i\}_i \longrightarrow  \{\pi_i^b\}_i    \alert{\xrightarrow{B} } \{\tilde{b}_i\}_i   \longrightarrow  \tilde{\mathbf{y}}  \longrightarrow  & \mathbb{E}[f(\tilde{\mathbf{y}})]
+                \end{array}
+            \end{equation*}
     
         \pause
-       \item Computation of the gradient thanks to the gradient of a function defined implicitly
-        \begin{equation*}
-            \begin{array}{ccccccccccc}
-                \mathbf{x} \longrightarrow \{\rho_i\}_i \alert{\longrightarrow}  \{\pi_i^b\}_i    \longrightarrow \{\tilde{b}_i\}_i \longrightarrow  \tilde{\mathbf{y}}  \longrightarrow  & \mathbb{E}[f(\tilde{\mathbf{y}}])
-            \end{array}
-        \end{equation*}
-   \end{enumerate}
+        \item Computation of the gradient thanks to the gradient of a function defined implicitly
+            \begin{equation*}
+                \begin{array}{ccccccccccc}
+                    \mathbf{x} \longrightarrow \{\rho_i\}_i \alert{\longrightarrow}  \{\pi_i^b\}_i    \longrightarrow \{\tilde{b}_i\}_i \longrightarrow  \tilde{\mathbf{y}}  \longrightarrow  & \mathbb{E}[f(\tilde{\mathbf{y}}])
+                \end{array}
+            \end{equation*}
+    \end{enumerate}
+
 \end{frame}
 
 
@@ -1007,43 +979,44 @@ At~$k^{\mathrm{th}}$ iteration, the two following macro-steps:
 
 \begin{frame}{1. Approximation of discrete modifications with Softmax Gumbel distribution}
 
-\begin{tcolorbox}[colback=lightgreen,colframe=greentheme,title=\textbf{Definition} (Hardmax Gumbel Function)]
-
-Hardmax Gumbel~\footfullcite{jang2016categorical} is a function of  $\pi = \{\pi^{-1},\pi^{0}, \pi^{+1}\}$ and $\vec{g} = \{g^{-1},g^{0}, g^{+1}\}$ and simulates, when $\vec{g}$ is drawn from $G(0,1)$ a drawing from a categorical distribution in $\{-1,0,1\}$ with probability distribution $\pi$:  
-    \begin{equation}
-\label{eq:gumbel}
-b = \mbox{HG}(\bm{\pi}, \vec{g}) = \underset{{j \in \{-1,0,+1\}}}{\arg \max} (g^j+ \log \pi^j).
-\end{equation}
-\end{tcolorbox}
+    \begin{tcolorbox}[colback=lightgreen,colframe=greentheme,title=\textbf{Definition} (Hardmax Gumbel Function)]
+        Hardmax Gumbel~\footfullcite{jang2016categorical} is a function of  $\pi = \{\pi^{-1},\pi^{0}, \pi^{+1}\}$ and $\vec{g} = \{g^{-1},g^{0}, g^{+1}\}$ and simulates, when $\vec{g}$ is drawn from $G(0,1)$ a drawing from a categorical distribution in $\{-1,0,1\}$ with probability distribution $\pi$:  
+        \begin{equation}
+            b = \mbox{HG}(\bm{\pi}, \vec{g}) = \underset{{j \in \{-1,0,+1\}}}{\arg \max} (g^j+ \log \pi^j).
+        \end{equation}
+    \end{tcolorbox}
 
 \end{frame}
 
 \begin{frame}{1. Approximation of discrete modifications with Softmax Gumbel distribution}
     
-The softmax function, an approximation of $\argmax$ function:
-$$ \mbox{softmax}\left(z_1,\ldots,z_n\right) = \frac{1}{\sum_{k=1}^n e^{z_k}}(e^{z_1},\ldots,e^{z_n}),$$
+    The softmax function, an approximation of $\argmax$ function:
+    \begin{equation}
+        \mbox{softmax}\left(z_1,\ldots,z_n\right) = \frac{1}{\sum_{k=1}^n e^{z_k}}(e^{z_1},\ldots,e^{z_n}),
+    \end{equation}
 
-because: 
+    because: 
+    \begin{equation}
+        \lim_{\tau \rightarrow 0} \mbox{softmax}\left(\frac{z_1}{\tau},\ldots,\frac{z_n}{\tau}\right) = (0,0\ldots,0,1,0,\dots, 0), 
+    \end{equation}
 
-$$
-\lim_{\tau \rightarrow 0} \mbox{softmax}\left(\frac{z_1}{\tau},\ldots,\frac{z_n}{\tau}\right) = (0,0\ldots,0,1,0,\dots, 0), 
-$$
+    \pause
+    $\tau$ is called the \emph{temperature}.
 
-\pause
-$\tau$ is called the \emph{temperature}.
 \end{frame}
 
 \begin{frame}{1. Approximation of discrete modifications with Softmax Gumbel distribution}
-\begin{tcolorbox}[colback=lightgreen,colframe=greentheme,title=\textbf{Definition} (Softmax Gumbel Function)]
+    
+    \begin{tcolorbox}[colback=lightgreen,colframe=greentheme,title=\textbf{Definition} (Softmax Gumbel Function)]
 
-Hardmax Gumbel function can be approximated by the following Softmax Gumbel function: 
+        Hardmax Gumbel function can be approximated by the following Softmax Gumbel function: 
+        \begin{eqnarray}\label{eq:softmaxgumbel} 
+            \tilde{b}_{\tau} &=& \mbox{SG}_\tau(\bm{\pi}, \vec{g}) = \sum_{j \in \{-1,0,+1\}} j\;z^j,\\
+            \text{with } \vec{z} &=& \mbox{softmax}\left(\frac{\vec{g}+\log \bm{\pi}}{\tau}\right).
+        \end{eqnarray}
 
-\begin{eqnarray}\label{eq:softmaxgumbel} 
-\tilde{b}_{\tau} &=& \mbox{SG}_\tau(\bm{\pi}, \vec{g}) = \sum_{j \in \{-1,0,+1\}} j\;z^j,\\
-\text{with } \vec{z} &=& \mbox{softmax}\left(\frac{\vec{g}+\log \bm{\pi}}{\tau}\right).
-\end{eqnarray}
+    \end{tcolorbox}
 
-\end{tcolorbox}
 \end{frame}
 
 
@@ -1052,48 +1025,42 @@ Hardmax Gumbel function can be approximated by the following Softmax Gumbel func
 
 \begin{frame}{1. Approximation of discrete modifications with Softmax Gumbel distribution}
     \begin{figure}[h]
-        \includegraphics[width=0.8\linewidth]{images/ternarychanges_softmaxgumbel.pdf}
+        \includegraphics[width=0.8\linewidth]{ternarychanges_softmaxgumbel.pdf}
     \end{figure}
 \end{frame}
 
 
 
-\begin{frame}{2. $\frac{\partial \mathbf{p}}{\partial \rho}$ computed implicitly}
+\begin{frame}{2. $\frac{\partial \mathbf{\pi}}{\partial \rho}$ computed implicitly}
 
-The chain rule gives:
+    The chain rule gives:
+    \begin{equation}
+        \frac{d \bm{\pi}}{d \bm{\rho}} = \frac{\partial \bm{\pi}}{\partial \bm{\rho}} + \frac{\partial \bm{\pi}}{\partial \lambda} \nabla_{\bm{\rho}} \lambda
+        \label{eq:gradientprobabilities}
+    \end{equation}
 
-\begin{equation}
-\frac{d \bm{\pi}}{d \bm{\rho}} = \frac{\partial \bm{\pi}}{\partial \bm{\rho}} + \frac{\partial \bm{\pi}}{\partial \lambda} \nabla_{\bm{\rho}} \lambda
-\label{eq:gradientprobabilities}
-\end{equation}
-
-\pause
-
+    \pause
     Probabilities are a function of costs $\rho$ and $\lambda$
     \begin{equation}
-        \pi_i^j = P_i^j\left(\rho_{i}, \lambda\right)%=\frac{e^{-\lambda \rho_{i}^{j}}}{\sum_{k \in \mathcal{B}} e^{-\lambda \rho_{i}^{k}}}, \quad j \in \{-1, 0, 1\}
+        \pi_i^j = P_i^j\left(\rho_{i}, \lambda\right) =\frac{e^{-\lambda \rho_{i}^{j}}}{\sum_{k \in \{-1,0,1\}} e^{-\lambda \rho_{i}^{k}}}, \quad j \in \{-1, 0, 1\}
     \end{equation}
     
     \pause
-    
     but $\lambda = \alert{\Lambda(\rho,|\mathbf{m}|))}$ is an (implicit) function of $\rho$ and $|m|$ stemming from the entropy constraint:
     
     \begin{equation}
         H\left(\left(\pi_i^j\right)_{i,j}\right)=|\mathbf{m}|
     \end{equation}
-    
-    \pause
 
 \end{frame}
 
-\begin{frame}{2. $\frac{\partial \mathbf{p}}{\partial \rho}$ computed implicitly}
+\begin{frame}{2. $\frac{\partial \mathbf{\pi}}{\partial \rho}$ computed implicitly}
 
-Explicit gradient of $\lambda$ accessible through differentiation of the entropy constraint.
-
+    Explicit gradient of $\lambda$ accessible through differentiation of the entropy constraint.
     \begin{equation}
-    \nabla_{\bm{\rho}} \lambda =  -\left( \frac{\partial  H(\bm{\pi})}{\partial \lambda}\right)^{-1} \nabla_{\bm{\rho}} H (\bm{\pi}) .
-\label{eq:gradientimplicit}
-\end{equation}
+        \nabla_{\bm{\rho}} \lambda =  -\left( \frac{\partial  H(\bm{\pi})}{\partial \lambda}\right)^{-1} \nabla_{\bm{\rho}} H (\bm{\pi}) .
+    \end{equation}
+
 \end{frame}
 
 
@@ -1119,35 +1086,33 @@ Explicit gradient of $\lambda$ accessible through differentiation of the entropy
 \begin{frame}{Overall algorithm of Backpack}
 
 
-\alert{Backpack}: \alert{Back-p}ropagable att\alert{ack}.
-%    \begin{align*}
-%     \mathbf{x} \longrightarrow \rho_i \alert{\longrightarrow} \pi_i \alert{ \xrightarrow{\tilde{b}_\tau}} \tilde{\mathbf{y}} & \longrightarrow f(\tilde{\mathbf{y}}) %\\
-%     % & \longrightarrow f^1(\tilde{\mathbf{y}}) \\
-%     % & \dots \\
-%     % & \longrightarrow f^{k-1}(\tilde{\mathbf{y}})
-%     \end{align*}
+    \alert{Backpack}: \alert{Back-p}ropagable att\alert{ack}.
+    %    \begin{align*}
+    %     \mathbf{x} \longrightarrow \rho_i \alert{\longrightarrow} \pi_i \alert{ \xrightarrow{\tilde{b}_\tau}} \tilde{\mathbf{y}} & \longrightarrow f(\tilde{\mathbf{y}}) %\\
+    %     % & \longrightarrow f^1(\tilde{\mathbf{y}}) \\
+    %     % & \dots \\
+    %     % & \longrightarrow f^{k-1}(\tilde{\mathbf{y}})
+    %     \end{align*}
 
-\begin{equation*}
-    \begin{array}{ccc}
-        \mathbf{x} \longrightarrow \{\rho_i\}_i & \alert{\longrightarrow}  \{\pi_i^b\}_i    \alert{\longrightarrow} \{\tilde{b}_i\}_i \longrightarrow  \tilde{\mathbf{y}}  \longrightarrow  & \mathbb{E}_{\tilde{y}}[f(\tilde{\mathbf{y}})] \\
-        & \alert{\xleftarrow{\hspace{5em} \nabla_\rho \mathbb{E}_{\tilde{y}} [f(\tilde{\mathbf{y}})]\hspace{5em}}} 
-    \end{array}
-\end{equation*}
+    \begin{equation*}
+        \begin{array}{ccc}
+            \mathbf{x} \longrightarrow \{\rho_i\}_i & \alert{\longrightarrow}  \{\pi_i^b\}_i    \alert{\longrightarrow} \{\tilde{b}_i\}_i \longrightarrow  \tilde{\mathbf{y}}  \longrightarrow  & \mathbb{E}_{\tilde{y}}[f(\tilde{\mathbf{y}})] \\
+            & \alert{\xleftarrow{\hspace{5em} \nabla_\rho \mathbb{E}_{\tilde{y}} [f(\tilde{\mathbf{y}})]\hspace{5em}}} 
+        \end{array}
+    \end{equation*}
 
-\pause
+    \pause
+    Iterative gradient descent, while playing with the temperature $\tau$, to optimize the smooth output w.r.t. best detector:
 
-Iterative gradient descent, while playing with the temperature $\tau$, to optimize the smooth output w.r.t. best detector:
-
-\begin{equation}
-    \alert{\nabla_\rho \mathbb{E}_{\tilde{y}} [f(\tilde{\mathbf{y}})]}, \quad  f = \argmax_{f \in \mathcal{F}^{k-1}} \mathbb{E}_{\tilde{y}} [f(\tilde{\mathbf{y}})]
-\end{equation}
-
+    \begin{equation}
+        \alert{\nabla_\rho \mathbb{E}_{\tilde{y}} [f(\tilde{\mathbf{y}})]}, \quad  f = \argmax_{f \in \mathcal{F}^{k-1}} \mathbb{E}_{\tilde{y}} [f(\tilde{\mathbf{y}})]
+    \end{equation}
 
 \end{frame}
 
 \begin{frame}{Difference between smooth and discrete stegos}
     \begin{figure}[h]
-        \includegraphics[width=0.7\linewidth]{images/gradient_descent_purpose_tau.pdf}
+        \includegraphics[width=0.7\linewidth]{gradient_descent_purpose_tau.pdf}
     \end{figure}
 \end{frame}
 
@@ -1167,32 +1132,31 @@ Iterative gradient descent, while playing with the temperature $\tau$, to optimi
 
 
 \begin{frame}{Evolution of $\min\max$ protocol with ADV-EMB}
-   \begin{figure}
-        \includegraphics[width=0.9\linewidth]{images/minmax_evolution_it9.pdf}
+    \begin{figure}
+        \includegraphics[width=0.9\linewidth]{minmax_evolution_it9.pdf}
     \end{figure}
-
 \end{frame}
 
 
 \begin{frame}{Evolution of $\min\max$ protocol with Backpack}
     \begin{figure}
-        \includegraphics[width=0.9\linewidth]{images/minmax_SGE_evolution_it7.pdf}
+        \includegraphics[width=0.9\linewidth]{minmax_SGE_evolution_it7.pdf}
     \end{figure}
 \end{frame}
 
 
 
-\begin{frame}{Results - Comparison ADV-EMB and Backpack}
+\begin{frame}{Results - Comparison ADV-EMB and Backpack for JPEG at QF 75 and at payload 0.4 bpnzAC}
     \begin{figure}[h]
-        \includegraphics[width=\linewidth]{images/pe_protocol_comparison_75.pdf}
+        \includegraphics[width=\linewidth]{pe_protocol_comparison_75.pdf}
     \end{figure}
 \end{frame}
 
 
-\begin{frame}{Results}
+\begin{frame}{Results - With three targeted models, for images at QF 75 and payload 0.4 bpnzAC}
 
     \begin{figure}[h]
-        \includegraphics[width=0.6\linewidth]{images/QF75_3models.pdf}
+        \includegraphics[width=0.55\linewidth]{QF75_3models.pdf}
     \end{figure}
     \pause
     \begin{center}
@@ -1208,12 +1172,12 @@ Iterative gradient descent, while playing with the temperature $\tau$, to optimi
 \begin{frame}{Results - Protocol with Backpack, at QF 100, with e-XUNet}
 Classifier using the rounding error of decompression~\footfullcite{butora2019reverse}
     \begin{figure}[h]
-        \includegraphics[width=0.6\linewidth]{images/experience_512_100_0_01_SGE_exunet.pdf}
+        \includegraphics[width=0.5\linewidth]{experience_512_100_0_01_SGE_exunet.pdf}
     \end{figure}
 \end{frame}
 
 
-\begin{frame}{Interpretation - Natural correlations between DCT modes}
+\begin{frame}{Interpretation - Natural correlations between DCT modes~\footfullcite{taburet2019computing}}
     \begin{tabularx}{0.9\textwidth} { 
         >{\centering\arraybackslash}X 
         >{\centering\arraybackslash}X 
@@ -1223,7 +1187,7 @@ Classifier using the rounding error of decompression~\footfullcite{butora2019rev
    \end{tabularx}
 
     \begin{figure}[h]
-        \includegraphics[width=1\linewidth]{images/cov_BOSS.pdf}
+        \includegraphics[width=1\linewidth]{cov_BOSS.pdf}
     \end{figure}
 \end{frame}
 
@@ -1245,11 +1209,10 @@ Classifier using the rounding error of decompression~\footfullcite{butora2019rev
     \end{tabularx}
 
     \begin{figure}[h]
-        \includegraphics[width=1\linewidth]{images/covariance_QF100_0_01_firstline.pdf}
+        \includegraphics[width=1\linewidth]{covariance_QF100_0_01_firstline.pdf}
     \end{figure}
 
     \pause
-
     For symmetric costs, correlations between DCT modes are equal to 0. 
     
 \end{frame}
@@ -1264,14 +1227,12 @@ Classifier using the rounding error of decompression~\footfullcite{butora2019rev
     \begin{itemize}
         \item Automatic game between Alice and Eve. 
         \begin{figure}[h]
-            \includegraphics[width=0.25\linewidth]{images/historicalgraph.pdf}
+            \includegraphics[width=0.25\linewidth]{historicalgraph.pdf}
         \end{figure}
     \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Conclusion}
-    
     \begin{itemize}
         \setlength\itemsep{2em}
         \item Design of a new attack to optimize a cost map w.r.t. a set of classifiers
@@ -1283,13 +1244,13 @@ Classifier using the rounding error of decompression~\footfullcite{butora2019rev
 
 
 \begin{frame}{Perspectives}
-    %Réfléchir !! S'inspirer des faiblesses. 
-    %Limitations:
+
     \begin{itemize}
+
         \item Backpack very costly, and gets worst with increasing iterations of the protocol. 
         
         \begin{figure}[h]
-            \includegraphics[width=0.4\linewidth]{images/experience_512_100_0_01_SGE_exunet.pdf}
+            \includegraphics[width=0.4\linewidth]{experience_512_100_0_01_SGE_exunet.pdf}
         \end{figure}
 
         \pause
@@ -1307,7 +1268,7 @@ Classifier using the rounding error of decompression~\footfullcite{butora2019rev
 \begin{frame}{Perspectives}
 
     \begin{figure}[h]
-        \includegraphics[width=1\linewidth]{images/mismatch_payload.pdf}
+        \includegraphics[width=1\linewidth]{mismatch_payload.pdf}
     \end{figure}
     
     \begin{itemize}
@@ -1316,7 +1277,6 @@ Classifier using the rounding error of decompression~\footfullcite{butora2019rev
                 \item diverse the payload
             \end{itemize}
     \end{itemize}
-
 
 \end{frame}
 
