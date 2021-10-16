@@ -9,8 +9,6 @@
 \usepackage{tabularx}
 \graphicspath{{./images/}}
 
-
-
 \usepackage{pgfplots}
 \usepackage{frcursive}
 \usepackage{media9}
@@ -23,9 +21,9 @@
 \usepackage{animate}
 \usepackage{bm}
 \usepackage{tcolorbox}
-\usepackage[style=authoryear]{biblatex}
-\addbibresource{demo.bib}
-
+\usepackage[style=authoryear,backend=biber]{biblatex}
+%\usepackage{biblatex}
+\bibliography{biblio}
 
 % Center Section titles 
     \setbeamertemplate{section page}{
@@ -550,6 +548,22 @@
 \end{frame}
 
 
+
+\begin{frame}{Adversarial steganography}
+    
+    \begin{figure}
+        \includegraphics[width=0.6\linewidth]{pingpong.pdf}
+    \end{figure}
+
+    \begin{center}
+        \begin{itemize}
+            \item $\mathcal{A}_{\text{alice}}$: set of actions of Alice
+            \item $\mathcal{A}_{\text{eve}}$: set of actions of Eve
+        \end{itemize}
+    \end{center}
+
+\end{frame}
+
 \begin{frame}{Adversarial steganography}
     %\animategraphics[width=0.9\linewidth]{25}{animation_adversarial_stego/}{0}{30}
 \end{frame}
@@ -600,20 +614,6 @@
 \section{Playing an iterative game with a \textbf{minmax} protocol}
 
 
-\begin{frame}{Adversarial steganography}
-    
-    \begin{figure}
-        \includegraphics[width=0.6\linewidth]{pingpong.pdf}
-    \end{figure}
-
-    \begin{center}
-        \begin{itemize}
-            \item $\mathcal{A}_a$: set of actions of Alice
-            \item $\mathcal{A}_e$: set of actions of Eve
-        \end{itemize}
-    \end{center}
-
-\end{frame}
 
 
 \begin{frame}{Past applications of game theory}
@@ -670,49 +670,14 @@
     
 \begin{frame}{Approximation with an iterative game}
     \begin{figure}
-        \includegraphics[width=0.7\linewidth]{increasing_game_0.pdf}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Approximation with an iterative game}
-    \begin{figure}
-        \includegraphics[width=0.7\linewidth]{increasing_game_1.pdf}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Approximation with an iterative game}
-    \begin{figure}
-        \includegraphics[width=0.7\linewidth]{increasing_game_1_bis.pdf}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Approximation with an iterative game}
-    \begin{figure}
-        \includegraphics[width=0.7\linewidth]{increasing_game_2.pdf}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Approximation with an iterative game}
-    \begin{figure}
-        \includegraphics[width=0.7\linewidth]{increasing_game_2_bis.pdf}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Approximation with an iterative game}
-    \begin{figure}
-        \includegraphics[width=0.7\linewidth]{increasing_game_3.pdf}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Approximation with an iterative game}
-    \begin{figure}
-        \includegraphics[width=0.7\linewidth]{increasing_game_4.pdf}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Approximation with an iterative game}
-    \begin{figure}
-        \includegraphics[width=0.7\linewidth]{increasing_game_5.pdf}
+        \only<1>{\includegraphics[width=0.7\linewidth]{increasing_game_0.pdf}}
+        \only<2>{\includegraphics[width=0.7\linewidth]{increasing_game_1.pdf}}
+        \only<3>{\includegraphics[width=0.7\linewidth]{increasing_game_1_bis.pdf}}
+        \only<4>{\includegraphics[width=0.7\linewidth]{increasing_game_2.pdf}}
+        \only<5>{\includegraphics[width=0.7\linewidth]{increasing_game_2_bis.pdf}}
+        \only<6>{\includegraphics[width=0.7\linewidth]{increasing_game_3.pdf}}
+        \only<7>{\includegraphics[width=0.7\linewidth]{increasing_game_4.pdf}}
+        \only<8>{\includegraphics[width=0.7\linewidth]{increasing_game_5.pdf}}
     \end{figure}
 \end{frame}
 
@@ -740,17 +705,17 @@
 % \end{frame}
 
 \begin{frame}{The $\min\max$ protocol}
-    Initialization: $\mathcal{A}_e = \fset^{0} = \{f^0\}$,  $\mathcal{A}_a = \{\mathcal{Y}^0\}$.
+    \alert{Initialization}: $\mathcal{A}_e = \fset^{0} = \{f^0\}$,  $\mathcal{A}_a = \{\mathcal{Y}^0\}$. \\
     \pause
-    At~$k^{\mathrm{th}}$ iteration, the two following macro-steps: 
+    \alert{At~$k^{\mathrm{th}}$ iteration}, the two following macro-steps: 
     \begin{enumerate}
         \item \alert<2>{Alice's turn.} 
             \begin{equation}
-                \mathbf{y}^\ast = \arg \min_{\mathbf{y} \in \mathcal{A}_a} \max_{f \in \fset^{k-1}} f(\mathbf{y});
+                \mathbf{y}^\ast = \arg \min_{\mathbf{y} \in \mathcal{A}_a} \max_{f \in \fset^{k-1}} f(\mathbf{y}).
                 \label{eq:stepone}	
             \end{equation}
             \pause
-        \item Eve's turn. Creation of a new detector $\fdet^k$ and appends it to the pool, i.e. $\fset^k = \fset^{k-1} \cup \{\fdet^k\}.$
+        \item Eve's turn. \\ Creation of a new detector $f^k$ and appends it to the pool $\fset^{k-1}$, i.e. $\fset^k = \fset^{k-1} \cup \{f^k\}.$
     \end{enumerate}
 \end{frame}
 
@@ -782,14 +747,14 @@
                 \begin{array}{ll}
                     \rho_{i}^+/\alpha & \mbox{if } \frac{\partial f}{\partial y_{i}}\left(\mathbf{y}\right) < 0, \\
                     \rho_{i}^+ & \mbox{if } \frac{\partial f}{\partial y_{i}}\left(\mathbf{y}\right) = 0, \\
-                    \rho_{i}^+ \alpha & \mbox{if } \frac{\partial f}{\partial y_{i}}\left(\mathbf{y}\right) > 0,
+                    \rho_{i}^+ \alpha & \mbox{if } \frac{\partial f}{\partial y_{i}}\left(\mathbf{y}\right) > 0.
                 \end{array}
             \right.
             \label{eq:qplus}
         \end{equation}
 
         \pause
-        \item \alert{Eve's new action:} Creation of a new action. Training of a new classifier $f^k$ to discriminate between $\mathcal{X}, \mathcal{Y}^k$.
+        \item \alert{Eve's new action:} training of a new classifier $f^k$ to discriminate between $\mathcal{X}$ and $\mathcal{Y}^k$.
 
     \end{enumerate}
 
@@ -816,12 +781,12 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Results - Experiments conditions}
+\begin{frame}{Results - Experimental setup}
     
     Mismatch between what assumes Alice can differ from the real actions of Eve. 
     \begin{equation*}
         \begin{array}{ccc}
-            \underbrace{\mathcal{A}_e}_{\mbox{Assumed Eve's actions}} & \neq & \underbrace{\tilde{\mathcal{A}}_e}_{\mbox{Real Eve's actions}} \\
+            \underbrace{\mathcal{A}_{\text{eve}}}_{\mbox{Assumed Eve's actions}} & \neq & \underbrace{\tilde{\mathcal{A}}_{\text{eve}}}_{\mbox{Real Eve's actions}} \\
             \pause \alert{\mbox{Targeted models}} & & \alert{\mbox{Blind models}}
         \end{array}
     \end{equation*}
@@ -831,7 +796,7 @@
     \begin{itemize}
         \item  Minmax: $\mathbf{y}^\ast = \arg \min_{\mathbf{y} \in \mathcal{A}_a} \max_{f \in \fset^{k-1}} f(\mathbf{y})$;
         \item  Last iteration: $\mathbf{y}^\ast = \arg \min_{\mathbf{y} \in \mathcal{A}_a}  f^{k-1}(\mathbf{y})$;
-        \item  Random: $\mathbf{y}^\ast = \arg \min_{\mathbf{y} \in \mathcal{A}_a}  f^i(\mathbf{y})$ for $i\sim [0,\dots,k-1]$. 
+        \item  Random: $\mathbf{y}^\ast = \arg \min_{\mathbf{y} \in \mathcal{A}_a}  f^i(\mathbf{y})$ for $i\sim U(\{0,\dots,k-1\})$. 
     \end{itemize}
 
 \end{frame}
@@ -889,12 +854,19 @@
             
         \item At some point, it fails at solving
             \begin{equation*}
-                \mathbf{z}^\ast = \arg \min_{\mathbf{z} \in \mathcal{A}_a} \max_{f \in \fset^{k-1}} f(\femb(\mathbf{x}));
+                \mathbf{z}^\ast = \arg \min_{\mathbf{z} \in \mathcal{A}_a} \max_{f \in \fset^{k-1}} f(z).
             \end{equation*} 
             
             \begin{figure}
-                \includegraphics[width=0.9\linewidth]{minmax_evolution_it9.pdf}
+                \includegraphics[width=0.85\linewidth]{minmax_evolution_it9.pdf}
              \end{figure}
+            
+            \vspace{-0.7cm} \hspace{2cm}
+            \begin{tabular}{m{5cm} m{2cm} m{4cm}}
+                \hspace{2.2cm} $\mathbb{E}[f^k(\mathbf{z}_i)]$ & 
+                $\mathbb{E}[\max_k f^k(\mathbf{z}_i)]$ &
+                $\mathbb{E}[\arg \min_i \max_k f^k(\mathbf{z}_i)]$
+            \end{tabular}
               
     \end{itemize}
 
@@ -1068,7 +1040,7 @@
 
     because: 
     \begin{equation}
-        \lim_{\tau \rightarrow 0} \mbox{softmax}\left(\frac{z_1}{\tau},\ldots,\frac{z_n}{\tau}\right) = (0,0\ldots,0,1,0,\dots, 0), 
+        \lim_{\tau \rightarrow 0} \mbox{softmax}\left(\frac{z_1}{\tau},\ldots,\frac{z_n}{\tau}\right) = \underbrace{(0,0\ldots,0,1,0,\dots, 0)}_{1 \text{ at position } \arg \max \text{HG}}, 
     \end{equation}
 
     $\tau$ is called the \emph{temperature}.
@@ -1191,16 +1163,31 @@
 
 \end{frame}
 
-\begin{frame}{Difference between smooth and discrete stegos}
-    \begin{minipage}[t]{.75\textwidth}
-        \begin{figure}[h]
-            \includegraphics[width=0.7\linewidth]{gradient_descent_purpose_tau.pdf}
-        \end{figure}
-    \end{minipage}  
 
-    \begin{minipage}[t]{.2\textwidth}
+\begin{frame}{Difference between smooth and discrete stegos}
+
+    \begin{columns}[c] 
+        \begin{column}{.65\textwidth}
+            \begin{figure}[h]
+                \includegraphics[width=1\textwidth]{gradient_descent_purpose_tau.pdf}
+            \end{figure}
+        \end{column}  
         
-    \end{minipage}  
+        \pause
+        \begin{column}{.3\textwidth}
+            Hyper-parameters:
+            %\begin{minipage}[c][width=1\textwidth]
+                \begin{itemize}
+                    %\setlength\itemsep{2em}
+                    \item Number of samples
+                    \item Temperature policy
+                    \item Number of steps for the gradient descent
+                    \item Stopping condition (here depends on the value of the detectability of covers)
+                \end{itemize}
+            %\end{minipage}
+        \end{column}  
+    \end{columns}
+
 \end{frame}
 
 
@@ -1313,22 +1300,42 @@ Classifier using the rounding error of decompression~\footfullcite{butora2019rev
 
 
 \begin{frame}{Conclusion}
+
     \begin{itemize}
-        \item Automatic game between Alice and Eve. 
-        \begin{figure}[h]
-            \includegraphics[width=0.25\linewidth]{historicalgraph.pdf}
-        \end{figure}
+        \item First contribution~\footfullcite{bernard2020explicit}: Automatic game between Alice and Eve. 
+        
+            \begin{columns}[c] 
+                \begin{column}{.5\textwidth}
+                    \begin{figure}[h]
+                        \includegraphics[width=0.30\linewidth]{historicalgraph.pdf}
+                    \end{figure}
+                \end{column}  
+                
+                \pause
+                \begin{column}{.5\textwidth}
+                    \begin{figure}[h]
+                        \includegraphics[width=1\linewidth]{pingpong.pdf}
+                    \end{figure}
+                \end{column}  
+            \end{columns}
+        
     \end{itemize}
 \end{frame}
 
+
 \begin{frame}{Conclusion}
-    \begin{itemize}
-        \setlength\itemsep{2em}
-        \item Design of a new attack to optimize a cost map w.r.t. a set of classifiers
-        \pause
-        \item Reproducibility: available on Gitlab \url{https://gitlab.univ-lille.fr/solene.bernard/backpack}
-        %\item Transferability: source dependance, domain adaptation, self-supervised learning
-    \end{itemize}
+
+        \begin{itemize}
+            %\setlength\itemsep{2em}
+            \item Design of a new attack~\footfullcite{bernard2020explicit} to optimize a cost map w.r.t. a set of classifiers
+            \pause     
+            \begin{figure}[h]
+                    \includegraphics[width=0.4\textwidth]{pingpong_backpack.pdf}
+                \end{figure}
+            \item Notable improvement
+            \item Reproducibility: available on Gitlab \url{https://gitlab.univ-lille.fr/solene.bernard/backpack}
+        \end{itemize}  
+
 \end{frame}
 
 
